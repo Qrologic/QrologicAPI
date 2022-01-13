@@ -1,0 +1,664 @@
+div.wpcf7 {
+    margin: 0;
+    padding: 0
+}
+
+    div.wpcf7 .screen-reader-response {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(1px,1px,1px,1px);
+        height: 1px;
+        width: 1px;
+        margin: 0;
+        padding: 0;
+        border: 0
+    }
+
+div.wpcf7-response-output {
+    margin: 2em .5em 1em;
+    padding: .2em 1em;
+    border: 2px solid red
+}
+
+div.wpcf7-mail-sent-ok {
+    border: 2px solid #398f14
+}
+
+div.wpcf7-mail-sent-ng, div.wpcf7-aborted {
+    border: 2px solid red
+}
+
+div.wpcf7-spam-blocked {
+    border: 2px solid orange
+}
+
+div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+    border: 2px solid #f7e700
+}
+
+.wpcf7-form-control-wrap {
+    position: relative
+}
+
+span.wpcf7-not-valid-tip {
+    color: red;
+    font-size: 1em;
+    font-weight: 400;
+    display: block
+}
+
+.use-floating-validation-tip span.wpcf7-not-valid-tip {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 100;
+    border: 1px solid red;
+    background: #fff;
+    padding: .2em .8em
+}
+
+span.wpcf7-list-item {
+    display: inline-block;
+    margin: 0 0 0 1em
+}
+
+span.wpcf7-list-item-label::before, span.wpcf7-list-item-label::after {
+    content: " "
+}
+
+.wpcf7-display-none {
+    display: none
+}
+
+div.wpcf7 .ajax-loader {
+    visibility: hidden;
+    display: inline-block;
+    background-image: url(../../images/ajax-loader.gif);
+    width: 16px;
+    height: 16px;
+    border: none;
+    padding: 0;
+    margin: 0 0 0 4px;
+    vertical-align: middle
+}
+
+    div.wpcf7 .ajax-loader.is-active {
+        visibility: visible
+    }
+
+div.wpcf7 div.ajax-error {
+    display: none
+}
+
+div.wpcf7 .placeheld {
+    color: #888
+}
+
+div.wpcf7 .wpcf7-recaptcha iframe {
+    margin-bottom: 0
+}
+
+div.wpcf7 input[type=file] {
+    cursor: pointer
+}
+
+    div.wpcf7 input[type=file]:disabled {
+        cursor: default
+    }
+
+div.wpcf7 .wpcf7-submit:disabled {
+    cursor: not-allowed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mt50 {
+    margin-top: 50px !important;
+}
+
+.title {
+    margin: 0 0 15px 0;
+    font-size: 26px;
+}
+
+.services h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
+    font-size: 18px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', Arial, Helvetica;
+    color: #007CC3;
+}
+
+.text14 {
+    font-size: 14px !important;
+    color: #000;
+}
+
+.services .desc {
+    color: #000;
+    text-align: justify;
+}
+
+
+
+
+
+
+/* 
+    Services 
+*/
+
+/* .services {
+    background:#F0F0F0;
+} */
+.services .odd .left {
+    padding: 0 30px;
+}
+
+.services .odd .right, .services .even .right {
+    text-align: center;
+    vertical-align: middle;
+}
+
+@media screen and (min-width:990px) {
+    .services .odd .right {
+        float: right;
+    }
+
+    .services .odd .right, .services .even .right {
+        min-height: 250px;
+        background: none repeat scroll 0 0 #ffffff;
+    }
+
+        .services .odd .right:before {
+            border-bottom: 30px solid #ffffff;
+            border-left: 30px solid #ff7d01;
+            border-top: 30px solid #ffffff;
+            content: "";
+            display: block;
+            left: 0;
+            position: absolute;
+            top: 35%;
+        }
+
+        .services .even .right:after {
+            border-bottom: 30px solid #ffffff;
+            border-right: 30px solid #ff7d01;
+            border-top: 30px solid #ffffff;
+            content: "";
+            display: block;
+            right: 0;
+            position: absolute;
+            top: 35%;
+        }
+
+    .services img {
+        margin-top: 25px;
+    }
+}
+
+.services h3 {
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+@media screen and (max-width:990px) {
+    .services img {
+        background: #ffffff;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .services h3 {
+        text-align: center;
+    }
+
+    .services .odd .right, .services .even .right {
+        min-height: 175px;
+        /*margin: 0 10px;*/
+        background: none repeat scroll 0 0 #ffffff;
+    }
+}
+
+.services .desc {
+    text-align: justify;
+}
+
+
+.services h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0;
+    font-size: 18px;
+    padding-bottom: 0px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', Arial, Helvetica;
+    color: #007CC3;
+}
+
+
+.img-thumbnail {
+    clip-path: circle(36.4% at 50% 50%);
+}
+
+    .img-thumbnail:hover {
+        clip-path: circle(70.7% at 50% 50%);
+    }
+
+
+
+
+/* ======================================================================== */
+/* 16. Icon Service Boxes
+/* ======================================================================== */
+.info_service {
+    padding: 1% 0 0;
+}
+
+/* Service Box 1
+====================================*/
+.serviceBox_1 {
+    margin-top: 25px;
+}
+
+    .serviceBox_1 .service-icon {
+        float: left;
+    }
+
+        .serviceBox_1 .service-icon i {
+            font-size: 34px;
+            color: #727CB6;
+        }
+
+    .serviceBox_1 .service-content h3 {
+        color: hsl(0, 0%, 20%);
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    .serviceBox_1 .service-content {
+        margin-left: 55px;
+    }
+
+        .serviceBox_1 .service-content p {
+            color: hsl(0, 0%, 47%);
+            line-height: 2;
+            font-family: Open Sans,Helvetica, Arial, sans-serif;
+        }
+
+/* service Box 2
+====================================*/
+
+.serviceBox_2 {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+    .serviceBox_2 .service-icon {
+        background: grey;
+        height: 62px;
+        width: 62px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .serviceBox_2.green .service-icon {
+        background: #58B25E;
+    }
+
+    .serviceBox_2.purple .service-icon {
+        background: #9F84C4;
+    }
+
+    .serviceBox_2.red .service-icon {
+        background: #F35958;
+    }
+
+    .serviceBox_2.blue .service-icon {
+        background: #02A2DD;
+    }
+
+    .serviceBox_2 .service-icon i {
+        font-size: 30px;
+        color: #fff;
+        line-height: 62px;
+    }
+
+    .serviceBox_2 .service-content h3 {
+        color: hsl(0deg 0% 100%);
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    .serviceBox_2 .service-content p {
+        color: hsl(0deg 0% 82%);
+        line-height: 2;
+        font-family: Open Sans,Helvetica, Arial, sans-serif;
+    }
+
+    .serviceBox_2 .read a {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .serviceBox_2.green .read a {
+        color: #58B25E;
+    }
+
+    .serviceBox_2.purple .read a {
+        color: #ffffff;
+    }
+
+    .serviceBox_2.red .read a {
+        color: #F35958;
+    }
+
+    .serviceBox_2.blue .read a {
+        color: #ffffff;
+    }
+
+    .serviceBox_2.green .read a:hover {
+        color: #2E9333;
+    }
+
+    .serviceBox_2.purple .read a:hover {
+        color: #674A92;
+    }
+
+    .serviceBox_2.red .read a:hover {
+        color: #AA2727;
+    }
+
+    .serviceBox_2.blue .read a:hover {
+        color: #186A89;
+    }
+
+/* service Box 3
+====================================*/
+
+.serviceBox_3 {
+    overflow: hidden;
+}
+
+    .serviceBox_3 .service-image > img {
+        width: 100%;
+    }
+
+    .serviceBox_3 .service-content {
+        background: #F14F54;
+        text-align: center;
+        width: 100%;
+    }
+
+        .serviceBox_3 .service-content.bg1 {
+            background: #FFB101;
+        }
+
+        .serviceBox_3 .service-content.bg2 {
+            background: #3ABE86;
+        }
+
+        .serviceBox_3 .service-content h3 {
+            font-size: 23px;
+            font-weight: 400;
+            color: #fff;
+            margin: 0;
+            padding: 45px 0;
+            height: 117px;
+            text-transform: uppercase;
+        }
+
+/*  serviceBox_4
+============================*/
+.serviceBox_4 {
+    padding: 25px 0;
+    margin-top: 50px;
+    border: 1px solid #c5c5c5;
+    position: relative;
+    text-align: center;
+}
+
+    .serviceBox_4 .service-icon {
+        background: #727CB6;
+        border-radius: 100%;
+        color: #fff;
+        height: 88px;
+        line-height: 100px;
+        padding: 0;
+        position: absolute;
+        width: 88px;
+        top: -47px;
+        left: 39%;
+    }
+
+        .serviceBox_4 .service-icon:before {
+            border: 3px solid #727CB6;
+            border-radius: 100%;
+            content: "";
+            height: 92px;
+            left: -2px;
+            position: absolute;
+            top: -2px;
+            transform: scale(1.1);
+            width: 92px;
+        }
+
+        .serviceBox_4 .service-icon i {
+            font-size: 40px;
+            margin: 0 7px 0 0;
+        }
+
+    .serviceBox_4 .service-content {
+        padding: 30px 0 12px;
+    }
+
+        .serviceBox_4 .service-content > h3 {
+            color: #373a41;
+            font: bold 16px/1.2em 'Open Sans',Helvetica, Arial, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .serviceBox_4 .service-content > p {
+            color: #8d9095;
+            font: 14px/23px 'Open Sans',Helvetica, Arial, sans-serif;
+            padding: 0 40px;
+        }
+
+    .serviceBox_4 .read i.fa-angle-right {
+        margin: 0 0 0 5px;
+    }
+
+/* service Box 5
+====================================*/
+.serviceBox_5 {
+    padding: 40px 0 0;
+}
+
+.serviceBox_5 {
+    background: #fff;
+    text-align: center;
+}
+
+    .serviceBox_5 > span {
+        background: #727CB6;
+        border-radius: 100%;
+        color: #fff;
+        display: inline-block;
+        font: bold 40px/18px "arial";
+        height: 88px;
+        line-height: 88px;
+        width: 88px;
+    }
+
+    .serviceBox_5 > h3 {
+        color: #424955;
+        font-family: 'Open Sans',Helvetica, Arial, sans-serif;
+        font-size: 30px;
+        font-weight: 300;
+        line-height: 35px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+    .serviceBox_5 > p {
+        color: #424955;
+        font: lighter 14px/21px "open sans",Helvetica, Arial, sans-serif;
+        padding: 0 35px;
+    }
+
+    .serviceBox_5 .read {
+        padding: 25px 0 40px;
+    }
+
+        .serviceBox_4 .read a,
+        .serviceBox_5 .read a {
+            background: rgba(0, 0, 0, 0) linear-gradient(to right, #444A6D 0%, #444A6D 50%, #727CB6 50%) repeat scroll 100% 0 / 200% 100%;
+            color: #fff;
+        }
+
+            .serviceBox_4 .read a:hover,
+            .serviceBox_5 .read a:hover {
+                background-position: 0 0;
+                color: #fff;
+            }
+
+/* service Box 6
+====================================*/
+.serviceBox_6 {
+    background: #DC005A;
+    color: #fff;
+    padding: 65px 85px;
+    margin: 0 -15px;
+    overflow: hidden;
+}
+
+    .serviceBox_6.purple {
+        background: #7A4B94;
+    }
+
+    .serviceBox_6.black {
+        background: #2A3636;
+    }
+
+    .serviceBox_6 .service-content {
+        padding: 0;
+    }
+
+        .serviceBox_6 .service-content h3 {
+            color: #fff;
+        }
+
+        .serviceBox_6 .service-content p {
+            font-size: 14px;
+            line-height: 29px;
+            margin-bottom: 30px;
+        }
+
+        .serviceBox_6 .service-content a {
+            background: hsla(0, 0%, 0%, 0) none repeat scroll 0 0;
+            border: 2px solid hsl(0, 0%, 97%);
+            border-radius: 0;
+            color: #fff;
+            padding: 9px 17px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.2s ease 0s;
+        }
+
+            .serviceBox_6 .service-content a:hover {
+                background-color: hsl(0, 0%, 97%);
+                color: hsl(0, 0%, 20%);
+            }
+
+                .serviceBox_6 .service-content a:hover i {
+                    opacity: 0;
+                }
+
+        .serviceBox_6 .service-content .line {
+            border: 1px solid;
+            display: block;
+            width: 20%;
+            margin: 20px 0;
+        }
+
+        .serviceBox_6 .service-content a i {
+            margin-left: 6px;
+        }
+
+/* service Box 7
+====================================*/
+.serviceBox_7 {
+    margin: 20px 0;
+}
+
+    .serviceBox_7 .service-icon {
+        display: inline-block;
+        float: left;
+    }
+
+    .serviceBox_7 .service-content {
+        float: left;
+        width: 70%;
+    }
+
+    .serviceBox_7 h3 {
+        font: 600 19px/35px "open sans";
+        text-transform: uppercase;
+        color: #343434;
+        margin: 0;
+    }
+
+    .serviceBox_7 p {
+        color: #7b7272;
+        font: 400 14px/25px "open sans";
+        display: inline-block;
+    }
+
+    .serviceBox_7 .service-icon {
+        background: #727cb6;
+        border-radius: 100%;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+.service-box-7 i {
+    font-size: 16px;
+}
+
+.serviceBox_7.right {
+    text-align: right;
+}
+
+    .serviceBox_7.right .service-icon {
+        float: right;
+        margin: 0 0 0 20px;
+    }
+
+.serviceBox_7 .service-icon {
+    margin: 0 20px 0 0;
+}
+
+.serviceBox_7 p {
+    margin-top: 20px;
+}

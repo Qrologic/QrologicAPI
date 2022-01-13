@@ -1,0 +1,181 @@
+﻿@model QroApi.MODEL.UserRegistration
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card ">
+            <div class="card-header bg-info">
+                <h4 class="card-title text-white">User Registeration</h4>
+            </div>
+            <form asp-controller="Register" asp-action="UserRegister" class="form-horizontal">
+                <div class="form-body">
+                    <div class="card-body">
+                        <div class="row" style="background: #ddd; margin-bottom: 2px !important;">
+                            <div class="col-md-12" id="sdetails" style="display:none;">
+                                <label id="snames"></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="UserRole"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <select asp-for="UserRole" class="form-control">                                               
+                                            </select>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-map"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="UserRole" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="PackageId"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <select asp-for="PackageId"  class="form-control">                                               
+                                            </select>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-trophy"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="PackageId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="UserName"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input asp-for="UserName" type="text" class="form-control" placeholder="Full Name">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-text-width"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="Mobile"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input asp-for="Mobile" type="text" class="form-control" placeholder="Mobile No">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-mobile-alt"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="Email"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input asp-for="Email" type="text" class="form-control" placeholder="Email">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-envelope"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="Address"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input asp-for="Address" type="text" class="form-control" placeholder="Address">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-paper-plane"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="StateId"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <select asp-for="StateId" onchange="common.BindCity(this.value);" asp-items="@ViewBag.StateId" class="form-control">
+                                                <option value="0">Select State</option>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-map"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="StateId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="CityId"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+
+                                            <select asp-for="CityId" class="form-control" asp-items="@ViewBag.CityId">
+                                            </select>
+
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-map"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="CityId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" asp-for="Password"></label>
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            <input asp-for="Password" class="form-control">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <span class="fa fa-key"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="card-body">
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

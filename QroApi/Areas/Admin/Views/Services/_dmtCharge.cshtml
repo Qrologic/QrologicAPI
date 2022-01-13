@@ -1,0 +1,83 @@
+﻿@model QroApi.MODEL.dmtApiCharge
+<div class="col-md-12  form-group">
+    <form asp-action="AddEditApiSurcharge" asp-controller="Services" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+          data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+        <input type="hidden" asp-for="Id" />
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                     <input type="hidden" id="hdnApi" asp-for="ApiId" />
+                    <label asp-for="ApiId" class="control-label"></label><span class="text-danger">*</span>
+                    <select asp-for="ApiId" class="form-control"></select>
+                    <span asp-validation-for="ApiId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <input type="hidden" id="hdnPackage" asp-for="PackageId" />
+                    <label asp-for="PackageId" class="control-label"></label><span class="text-danger">*</span>
+                    <select asp-for="PackageId" class="form-control"></select>
+                    <span asp-validation-for="PackageId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="FromAmount" class="control-label"></label><span class="text-danger">*</span>
+                    <input class="form-control" type="text" asp-for="FromAmount" onkeypress="Clear()" onchange="CheckAmount()">
+                    <span asp-validation-for="FromAmount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="ToAmount" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="ToAmount" class="form-control" onkeypress="Clear()" onchange="CheckAmount()" />
+                    <span asp-validation-for="ToAmount" class="text-danger"></span>
+                    <span id="sp-amount" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="ApiCharge" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="ApiCharge" class="form-control" />
+                    <span asp-validation-for="ApiCharge" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label asp-for="Surcharge" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="Surcharge" class="form-control" />
+                    <span asp-validation-for="Surcharge" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <div class="form-group text-center">
+                    <label asp-for="IsFlat" class="control-label"></label>
+                    <input asp-for="IsFlat" class="form-control"/>
+
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <div class="form-group">
+                    <label asp-for="gstRate" class="control-label"></label>
+                    <input asp-for="gstRate" class="form-control" />
+
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <div class="form-group">
+                    <label asp-for="tdsRate" class="control-label"></label>
+                    <input asp-for="tdsRate" class="form-control" />
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <br />
+                <input type="submit" value="Submit" class="btn btn-primary" />
+
+            </div>
+            <div class="col-sm-12">
+                <hr />
+            </div>
+        </div>
+
+    </form>
+</div>

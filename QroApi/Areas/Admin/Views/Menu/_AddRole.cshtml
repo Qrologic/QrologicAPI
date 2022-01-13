@@ -1,0 +1,24 @@
+﻿@model QroApi.MODEL.RoleModel
+
+
+<form asp-action="AddRole" asp-controller="Menu" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="UserRole" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="UserRole" class="form-control" />
+                <span asp-validation-for="UserRole" class="text-danger"></span>
+                <input type="hidden" id="hdnId" asp-for="Id" />
+            </div>
+        </div>
+      
+        <div class="col-sm-6">
+            <label class="" style="margin-bottom: 0rem;">&nbsp;</label><span class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>

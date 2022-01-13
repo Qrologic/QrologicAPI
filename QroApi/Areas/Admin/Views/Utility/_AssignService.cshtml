@@ -1,0 +1,19 @@
+﻿@model QroApi.MODEL.AssignedService
+<div class="card-body" style="max-width: 600px;">
+    <h6 class="card-title"> Package:&nbsp;@Model.PackageName</h6>
+    <input type="hidden" id="packageId" value="@Model.PackageId" />
+    <div id="serviceList">
+        @if (Model.list != null)
+        {
+            @foreach (var item in Model.list)
+            {
+                <div class="position-relative form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" checked="@item.IsAssign" value="@item.ServiceId">@item.ServiceName
+                    </label>
+                </div>
+            }
+        }
+    </div> 
+    <input type="submit" onclick="utility.AssignService()" value="Submit" class="btn btn-primary" />
+</div>

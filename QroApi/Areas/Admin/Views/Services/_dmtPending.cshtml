@@ -1,0 +1,34 @@
+﻿@model QroApi.MODEL.PendingDMT
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+<tr>
+    @*<td><input type="checkbox" value="@item.Id" /></td>*@
+    <td>@item.SrNo</td>
+    <td>@item.MemberName</td>
+    <td>@item.Amount</td>
+    <td><span class="badge badge-pill badge-warning">@item.Status</span></td>
+    <td>@item.Account</td>
+    <td>@item.Ifsc</td>
+    <td>@item.Remitter</td>
+    <td>@item.BeneName</td>
+    <td>@item.TxnId</td>
+    <td>@item.ApiTxnId</td>
+    <td>@item.RefNo</td>
+    <td>
+        @item.TxnDate
+
+        <input type="hidden" id="hdn-apiid-@item.Id" value="@item.ApiId" />
+        <input type="hidden" id="hdn-txnid-@item.Id" value="@item.TxnId" />
+        <input type="hidden" id="hdn-apitxnid-@item.Id" value="@item.ApiTxnId" />
+    </td>
+    <td>
+        <a href="javascript:void(0);" class="btn btn-info" onclick="dmtv2.TransactionEnquiry(@item.Id,'@item.TxnId',@item.ApiId,'Status Enquiry')">Enquiry</a>&nbsp;
+        <a href="javascript:void(0);" style="display:none;" class="btn btn-success" onclick="dmtv2.ForceUpdate(@item.Id,1)">Success</a>&nbsp;
+        <a href="javascript:void(0);" style="display:none;" class="btn btn-danger" onclick="dmtv2.ForceUpdate(@item.Id,0)">Failed</a>
+    </td>
+
+</tr>
+    }
+}

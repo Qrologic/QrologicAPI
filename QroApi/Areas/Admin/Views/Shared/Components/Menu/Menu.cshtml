@@ -1,0 +1,130 @@
+﻿@model QroApi.MODEL.MenuModel
+<div class="app-sidebar sidebar-shadow @Model.SidebarClass">
+    <div class="app-header__logo">
+        @*<div class="logo-src">
+            <img >
+        </div>*@
+        <div class="header__pane ml-auto">
+            <div>
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="app-header__mobile-menu">
+        <div>
+            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-header__menu">
+        <span>
+            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                <span class="btn-icon-wrapper">
+                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                </span>
+            </button>
+        </span>
+    </div>
+    <div class="scrollbar-sidebar ps ps--active-y">
+        <div class="app-sidebar__inner">
+            <ul id="menu" class="vertical-nav-menu metismenu">
+                @if (Model.listMenu != null)
+                {
+                    var parentList = Model.listMenu.Where(x => x.ParentId == 0 && x.Level == 1).OrderBy(x => x.Position).ToList();
+                    @foreach (var parent in parentList)
+                    {
+                        var childList = Model.listMenu.Where(x => x.ParentId == parent.MenuId).OrderBy(x => x.Position).ToList();
+                        @if (childList.Count == 0)
+                        {
+                            <li>
+                                @{var area = parent.ControllerName.ToLower() == "account" ? "" : "/Admin"; }
+                                <a href="@area/@parent.ControllerName/@parent.ActionName" onclick="removeActiveClass(@childList.Count,`@parent.MenuName`,``,`@parent.MenuIcon`);">
+                                    <i class="metismenu-icon @parent.MenuIcon"></i>@parent.MenuName
+                                    @*<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>*@
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li id="menu_@parent.MenuId" onclick="menu.SetMenuInCookie(@parent.MenuId)" class="@parent.ClassName">
+                                <a href="javascript:void(0);" onclick="removeActiveClass(@childList.Count,`@parent.MenuName`,``,`@parent.MenuIcon`);">
+                                    <i class="metismenu-icon @parent.MenuIcon"></i>@parent.MenuName
+                                    <i class="metismenu-state-icon fa fa-angle-down caret-left opacity-5"></i>
+                                </a>
+
+                                @foreach (var child in childList)
+                                {
+                                    var area = child.ControllerName.ToLower() == "account" ? "" : "/Admin";
+                                    <ul class="mm-collapse @child.ClassName">
+                                        <li>
+                                            <a href="@area/@child.ControllerName/@child.ActionName" id="menu_@child.MenuId" onclick="menu.SubMenuActive(@child.MenuId,`@parent.MenuTitle`,`@child.MenuTitle`,`@parent.MenuIcon`)">
+                                                <i class="metismenu-icon"></i> @child.MenuName
+                                            </a>
+                                        </li>
+                                    </ul>
+                                }
+                            </li>
+                        }
+
+                    }
+                }
+            </ul>
+
+
+        </div>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 0px; height: 533px; right: 0px;">
+            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 300px;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+        var menuId = sessionStorage.getItem("ActiveSubMenu");
+        if (menuId != null || menuId != undefined) {
+            $(`#menu_` + menuId).addClass('menu-active');
+        }
+        //else {
+        //    $(`#menu_` + menuId).removeClass('menu-active');
+        //}
+
+        //$('#menu li').each(function () {
+        //    if ($(this).hasClass("mm-active")) {
+        //        $(this).removeClass("mm-active")
+        //        if ($(this).children("ul").hasClass("mm-show")) {
+        //            $(this).children("ul").removeClass("mm-show")
+        //        }
+        //    }
+
+          
+        //});
+        //$('#menu li a').each(function () {
+        //    $(this).attr("aria-expanded", false);
+        //});
+
+    });
+
+    function removeActiveClass(cnt, firstLevelMenuName, secondLevelMenuName,menuicon) {
+        sessionStorage.setItem("firstLevelMenuName", firstLevelMenuName);
+        sessionStorage.setItem("secondLevelMenuName", secondLevelMenuName);
+        sessionStorage.setItem("menuicon", menuicon);
+      
+        //var menuId = sessionStorage.getItem("ActiveSubMenu");
+        //console.log(menuId);
+        //if (cnt == 0) {
+        //    $(`#menu_` + menuId).removeClass('menu-active');
+        //    sessionStorage.removeItem("ActiveSubMenu");
+        //}
+    }
+</script>

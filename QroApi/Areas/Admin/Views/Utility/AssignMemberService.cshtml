@@ -1,0 +1,56 @@
+﻿@model QroApi.MODEL.AssignedService
+@{
+    ViewData["Title"] = "AssignService";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1> <i class="lnr-apartment opacity-6"></i>Assign Service</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Utility</a></li>
+        <li class="active"> Assign Service
+        <li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body" style="max-width: 600px;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">MemberId</label><span class="text-danger">*</span>
+                                <input type="text" id="MemberId" name="MemberId" class="form-control" placeholder="Search Member" />
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="card-title"> Name:&nbsp;@Model.MemberName</h6>
+                    <input type="hidden" id="MsrNo" value="@Model.MsrNo" />
+                    <input type="hidden" name="hdnArea" id="hdnArea" value="Admin" />
+                    <div id="serviceList">
+                        @if (Model.list != null)
+                        {
+                            @foreach (var item in Model.list)
+                            {
+                                <div class="position-relative form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" checked="@item.IsAssign" value="@item.ServiceId">@item.ServiceName
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <input type="submit" onclick="utility.AssignService()" value="Submit" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/CustomJS/Utility.js"></script>
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            utility.SearchMember();
+        });
+    </script>
+}

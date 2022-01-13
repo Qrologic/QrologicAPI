@@ -1,0 +1,178 @@
+﻿@model QroApi.MODEL.EmployeeDetail
+<div class="row">
+    <div class="col-md-4 col-lg-4 col-sm-6 card-1">
+        <div class="panel panel-default card-detail">
+            <div class="panel-body">
+                <div class="card-content secondary-header">
+                    Basic information
+                    <span class="pull-right text-primary edit-link" data-config-id="accountDetailsDisplayInfo">
+                        @*<span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Edit</span>*@
+                    </span>
+                </div>
+                <div class="scroll-area-sm">
+                    <div class="scrollbar-container ps">
+                        <div class="card-content pb20">
+                            <div></div>
+                            <div class="col-md-12">
+                                <span class="help-text light">
+                                    Name: <span class="help-text">@Model.Name</span>
+                                    @{ var iconClass = Model.Status == "Active" ? "fa-check-circle text-success" : "fa-times-circle text-danger";}
+                                    <i class="fa @iconClass" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">User Id: <span class="help-text">@Model.UserId</span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">DOJ: <span class="help-text">@Model.DOJ</span></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <span class="help-text light">Aadhar Number: <span class="help-text">@Model.AadharNumber</span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">Pan Number: <span class="help-text">@Model.PanNumber</span></span>
+                            </div>
+                        </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer text-center load-more" style="display: none;">
+                <span class="load-more-text more">
+                    More
+                    <i class="fa fa-angle-down"></i>
+                </span>
+                <span class="load-more-text less">
+                    Less
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-sm-6 card-1">
+        <div class="panel panel-default card-detail">
+            <div class="panel-body">
+                <div class="card-content secondary-header">
+                    Security
+                </div>
+                <div class="scroll-area-sm">
+                    <div class="scrollbar-container ps">
+                        <div class="card-content pb20">
+                            <div></div>
+
+                            <div class="col-md-12">
+                                <span class="help-text light">Login Id:</span>
+
+                                <p>
+                                    <span class="help-text">@Model.Mobile, @Model.Email </span>
+                                    <span class="icon icon-success"></span>
+                                </p>
+                            </div>
+
+                            <div class="col-md-12">
+                                <span class="help-text light">Password</span>
+                                <span class="pull-right text-primary edit-link" style="text-transform: none;">
+                                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#change-password">Change</a>
+                                </span>
+                                <p>
+                                    <span class="help-text">@Model.Password</span>
+                                </p>
+
+                            </div>
+                            <div class="collapse" id="change-password">
+                                <div class="col-md-12">
+
+                                    <input type="text" id="password" placeholder="Enter New  Password" class="form-control" />
+                                    <button class="btn btn-primary mt-2 pull-right" onclick="member.ChangeEmployeePassword(@Model.Id,`Admin`)">Save</button>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">Transaction Password</span>
+                                <span class="pull-right text-primary edit-link" style="text-transform: none;">
+                                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#change-tpass">Change</a>
+                                </span>
+                                <p>
+                                    <span class="help-text">@Model.TPassword</span>
+                                    <span class="icon icon-success"></span>
+                                </p>
+
+                            </div>
+                            <div class="collapse" id="change-tpass">
+                                <div class="col-md-12">
+                                    <input type="text" id="tpassword" placeholder="Enter New T Password" class="form-control" />
+                                    <button class="btn btn-primary mt-2 pull-right" onclick="member.ChangeEmployeeTPassword(@Model.Id,`Admin`)">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer text-center load-more" style="display: none;">
+                <span class="load-more-text more">
+                    More
+                    <i class="fa fa-angle-down"></i>
+                </span>
+                <span class="load-more-text less">
+                    Less
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-4 col-lg-4 col-sm-6 card-1" id="Contact">
+        <div class="panel panel-default card-detail">
+            <div class="panel-body">
+                <div class="card-content secondary-header">
+                    Contact Details
+                </div>
+                <div class="scroll-area-sm">
+                    <div class="scrollbar-container ps">
+                        <div class="card-content pb20">
+                            <div></div>
+                            <div class="col-md-12">
+                                <span class="help-text light">Mobile: <span class="help-text">@Model.Mobile  </span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">Email:  <span class="help-text">@Model.Email</span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">Address: <span class="help-text">@Model.Address</span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">City: <span class="help-text">@Model.City</span></span>
+                            </div>
+                            <div class="col-md-12">
+                                <span class="help-text light">State: <span class="help-text">@Model.State</span></span>
+                            </div>
+
+
+                        </div>
+                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                    </div>
+                </div>
+
+            </div>
+            @*<div class="panel-footer text-center load-more" id="contactBtn">
+                    <span class="load-more-text more">
+                        More
+                        <i class="fa fa-angle-down"></i>
+                    </span>
+                    <span class="load-more-text less">
+                        Less
+                        <i class="fa fa-angle-up"></i>
+                    </span>
+                </div>*@
+        </div>
+    </div>
+
+
+</div>

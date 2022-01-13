@@ -1,0 +1,42 @@
+﻿
+
+<div class="row form-group">
+    <div class="col-md-5">
+        Service
+        <select class="form-control" id="ServiceId"></select>
+    </div>
+    <div class="col-md-5">
+        API
+        <select class="form-control" id="apiId"></select>
+    </div>
+    <div class="col-md-2">
+        <br />
+        <input type="submit" value="View" onclick="rc.GetOperatorByServiceId()" class="t-1 btn btn-primary" />
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+<form id="btn_save" style="display:none">
+    <div class="row form-group">
+
+        <div class="col-md-6 table-responsive">
+            <table id="myTable" class="display nowrap dataTable ">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" onchange="common.SelectAllCheckBox('checked-all')"  id="checked-all" /></th>
+                        <th>Operator Name</th>                      
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-1">
+            <a href="javascript:void(0);" onclick="rc.SwitchApiByOperator()" class="t-1 btn btn-primary">Save</a>
+        </div>
+    </div>
+</form>

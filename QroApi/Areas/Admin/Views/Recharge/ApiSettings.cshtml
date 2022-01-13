@@ -1,0 +1,130 @@
+﻿@model QroApi.MODEL.ApiList
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "ApiSettings";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new dmtApiList(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+
+    List<string>
+    termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+
+}
+<style>
+    .dt-buttons {display: none !important; }
+    .dataTables_filter {display: none !important;}
+    table.dataTable thead .sorting_asc {background-image: none !important;}
+    table.dataTable thead th, table.dataTable thead td, table.dataTable tbody td {
+        padding: 10px 11px;
+        border-bottom: 0px !important;
+    }
+    .dataTables_info {
+        display:none;
+    }
+    #myTable2_paginate {
+        display: none;
+    }
+</style>
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="main-card mb-3 card">
+                <div class="card-header-tab card-header">
+                    <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal" onclick="rc.CircleCodePopup()" class="mb-2 mr-2 btn-pill btn btn-primary">Circle Code</a>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal" onclick="rc.OperatorCodePopup()" class="mb-2 mr-2 btn-pill btn btn-warning">Operator Code</a>
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal" onclick="rc.ManageCommissionPopup('Admin')" class="mb-2 mr-2 btn-pill btn btn-success">Manage Commission</a>
+                        <div class="dropdown dropdown-btn">
+                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    class="mb-2 mr-2 btn-pill btn btn-info">
+                                Switch Api
+                            </button>
+                            <div tabindex="-1" role="menu" aria-hidden="true"
+                                 class="dropdown-menu-right rm-pointers dropdown-menu-shadow dropdown-menu-hover-link dropdown-menu">
+                                <h6 tabindex="-1" class="dropdown-header"><a href="Javascript;" data-toggle="modal" data-target="#exampleModal" onclick="rc.GetPackageWiseApi()">Package Wise</a></h6>
+                                <h6 tabindex="-1" class="dropdown-header"><a href="Javascript;" data-toggle="modal" data-target="#exampleModal" onclick="rc.OperatorWiseApiPopup()">Operator Wise</a></h6>
+                            </div>
+                        </div>
+                        @*<button class="mb-2 mr-2 btn-pill btn btn-warning">Warning</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-danger">Danger</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-focus">Focus</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-alternate">Alt</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-light">Light</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-dark">Dark</button>
+                            <button class="mb-2 mr-2 btn-pill btn btn-link">link</button>*@
+                    </div>
+                </div>
+            </div>
+            <div class="main-card mb-3 card">
+                <div class="card-header">Recharge API</div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>SrNo</th>
+                                            <th>Api Name</th>
+                                            <th>Balance</th>
+                                            <th>Staus</th>
+                                            <th>Change Staus</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="apiList">
+                                        @await Html.PartialAsync("_ApiList", Model)
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header">DMT API</div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="myTable2">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                            <th>@item</th>
+                                            }
+                                        </tr>
+
+                                    </thead>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script src="~/CustomJS/v2-dmt.js"></script>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+            table.BindTable(`/Admin/Services/loaddmtApiList`, `myTable2`)
+        });
+    </script>
+}
+

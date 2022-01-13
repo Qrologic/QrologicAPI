@@ -1,0 +1,36 @@
+﻿@model QroApi.MODEL.ApiList
+@if (Model.listApi != null)
+{
+    if (Model.listApi.Count > 0)
+    {
+        var i = 1;
+        foreach (var item in Model.listApi)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.ApiName</td>
+                <td>@item.Balance</td>
+                <td>@item.Status</td>
+                <td>
+                    @{var _class = item.Status.ToString() == "Active" ? "badge badge-success" : "badge badge-danger";
+                        var _icon = item.Status.ToString() == "Active" ? "fa fa-check" : "fa fa-close";
+                    }
+                    <a href="javascript:void(0)" class="@_class" onclick="rc.SwitchApi(@item.ApiId)"><i class="@_icon"></i></a>
+                </td>
+            </tr>
+            i = i + 1;
+        }
+    }
+    else
+    {
+        <tr>
+            <td>No Record Found !</td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td>No Record Found !</td>
+    </tr>
+}

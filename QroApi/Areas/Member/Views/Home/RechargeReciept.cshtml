@@ -1,0 +1,262 @@
+﻿@model QroApi.MODEL.RechargeReciept
+@{
+    ViewData["Title"] = "Reciept";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">*@
+
+
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        border: 0px solid #eee;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+            /*width: 660px;*/
+            margin: 0 auto;
+        }
+
+            .invoice-box table td {
+                padding: 5px;
+                vertical-align: top;
+            }
+
+            /*.invoice-box table tr td:nth-child(2) {
+                    text-align: right;
+                }
+    */
+            .invoice-box table tr.top table td {
+                padding-bottom: 0px;
+            }
+
+                .invoice-box table tr.top table td.title {
+                    font-size: 45px;
+                    /*line-height: 45px;*/
+                    color: #333;
+                    /*border-bottom: 2px solid #000;*/
+                }
+
+            .invoice-box table tr.information table td {
+                padding-bottom: 10px;
+                /*border-bottom: 2px solid #000;*/
+            }
+
+            .invoice-box table tr.heading td {
+                background: #eee;
+                border-bottom: 1px solid #ddd;
+                font-weight: bold;
+                font-size: large;
+            }
+
+            .invoice-box table tr.details td {
+                padding-bottom: 20px;
+                padding: 4px 20px;
+                border: 1px solid #ddd;
+                vertical-align: middle;
+                font-size: 15px;
+            }
+
+            .invoice-box table tr.item td {
+                border-bottom: 1px solid #eee;
+            }
+
+            .invoice-box table tr.item.last td {
+                border-bottom: none;
+            }
+
+            .invoice-box table tr.total td:nth-child(2) {
+                border-top: 2px solid #eee;
+                font-weight: bold;
+            }
+
+    @@media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 50%;
+            /*display: block;
+                        text-align: center;*/
+        }
+
+        .invoice-box table tr.information table td {
+            width: 50%;
+            /*display: block;
+                        text-align: center;*/
+        }
+
+        .invoice-box {
+            width: 100%;
+            max-width: 100%;
+            padding: 0px;
+            border: 0px;
+            box-shadow: 0 0 10px rgb(0 0 0 / 0%);
+            font-size: 12px;
+        }
+
+            .invoice-box table tr.details td {
+                padding: 0px 30px;
+            }
+
+            .invoice-box table tr.top table td.title {
+                font-size: 18px;
+                line-height: 30px;
+            }
+
+        .logo-img img {
+            width: 100%;
+            max-width: 140px !important;
+        }
+    }
+
+    /** RTL **/
+    .invoice-box.rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+
+        .invoice-box.rtl table {
+            text-align: right;
+        }
+
+            .invoice-box.rtl table tr td:nth-child(2) {
+                text-align: left;
+            }
+
+    .title .logo-img {
+        /* display: inline-block; */
+        /* float: left; */
+        text-align: center;
+    }
+
+    .title .header-text h5 {
+        margin: 0;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .text-center {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+        .text-center .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    @@media print {
+        #printPageButton {
+            display: none;
+        }
+    }
+</style>
+<div class="invoice-box" id="printDiv" style="background:#fff;padding:10px;">
+    <table cellpadding="0" cellspacing="0" style="border: 2px solid #ddd;border-bottom: 0px;">
+        <tbody>
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="title" style="width:190px;">
+                                    <div class="header-text">
+                                        <h2 style=" font-size: 16px; margin: 0px;">@Model.company.CompanyName</h2>
+                                    </div>
+                                </td>
+                                <td class="title" style="width:140px;">
+                                    <div class="logo-img">
+                                        <img src="../../../images/UploadImages/@Model.company.CompanyLogo" style="width: 100%; max-width: 120px">
+                                    </div>
+                                    <div class="header-text">
+                                        <h5 style="font-size: 16px; margin: 0px;">Transaction  Receipt</h5>
+                                    </div>
+                                </td>
+                                <td style=" text-align: left; width: 190px;">Agent Name : <span><b>@Model.Name</b></span> <br> Agent Mobile : <span><b>@Model.Mobile</b></span> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="0" cellspacing="0" style="border: 1px solid #ddd;margin: 0 auto;">
+        <tbody>
+            <tr class="details">
+                <td>@{var b = Model.ServiceId == 7 ? "CA Number" : "Number";}  </td>
+                <td colspan="4">@Model.Number</td>
+            </tr>
+            <tr class="details">
+                <td>Operator</td>
+                <td colspan="4">@Model.OperatorName</td>
+            </tr>
+
+            <tr class="details">
+                <td>Transaction Id</td>
+                <td>Date</td>
+                <td>Reference No</td>
+                <td>Amount</td>
+                <td>Status</td>
+            </tr>
+
+            <tr class="details">
+                <td>@Model.TxnId</td>
+                <td>@DateTime.Now.ToString("dd/MM/yyyy hh:mm tt")</td>
+                <td>@Model.OprId</td>
+                <td>@Model.Amount</td>
+                <td>@{var status = Model.Status == "Pending" ? "Success" : Model.Status;}@status </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <p style="font-size: 12px; margin:0px;"><b>Note:</b> This receipt is computer generated and only valid at @Model.company.CompanyName Counters.</p>
+    <p style="font-size: 12px; margin:0px;"><b>Office Address:</b>@Model.company.Address</p>
+    <p style="font-size: 12px; margin:0px;"><b>Website:</b>@Model.company.WebsiteUrl /   <b>Email:</b>@Model.company.Email</p>
+
+</div>
+<div class="text-center">
+    <button id="printPageButton" onclick="window.print();" class="btn btn-primary" style="width:fit-content;">Print</button>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+
+        $(function () { window.print(); });
+    </script>
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+﻿@model QroApi.MODEL.BalanceRequestModel
+<span class="text-danger" id="spvalidation"></span>
+<form asp-action="AddEditBalanceRequest" asp-area="Member" asp-controller="Wallet" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="PaymentMode"></label><span class="text-danger">*</span>
+                <select asp-for="PaymentMode" onchange="wallet.ManageRequestValidation(this.value)" class="form-control">
+                    <option value="">Select Payment Mode</option>
+                    <option value="Cash">Cash</option>
+                    <option value="IMPS">IMPS</option>
+                    <option value="NEFT">NEFT</option>
+                    <option value="RTGS">RTGS</option>
+                    <option value="UPI">UPI</option>
+                </select>
+                <span asp-validation-for="PaymentMode" class="text-danger"></span>
+                <input type="hidden" asp-for="Id" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <div class="position-relative form-group">
+                    <label asp-for="Amount"></label><span class="text-danger">*</span>
+                    <input asp-for="Amount" onkeypress="return common.isNumberKey(event);" type="text" placeholder="Amount" class="form-control">
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="PayDate"></label><span class="text-danger">*</span>
+                <input asp-for="PayDate" type="date" class="form-control">
+                <span asp-validation-for="PayDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="ToBank"></label><span class="text-danger">*</span>
+                <select asp-for="ToBank" class="form-control">
+                    <option value="">Select Bank</option>
+                </select>
+                <span asp-validation-for="ToBank" class="text-danger"></span>
+                <input type="hidden" id="hdnToBank" asp-for="ToBank" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        @*<div class="col-sm-6">
+                <div class="position-relative form-group">
+                    <label asp-for="ChequeNumber"></label><span class="text-danger">*</span>
+                    <input asp-for="ChequeNumber" type="text" placeholder="Cheque or DD Number" class="form-control">
+                    <span asp-validation-for="ChequeNumber" class="text-danger"></span>
+                </div>
+            </div>*@
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="RefNo"></label><span class="text-danger">*</span>
+                <input asp-for="RefNo" type="text" placeholder="RRN" class="form-control">
+                <span asp-validation-for="RefNo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="Remark"></label><span class="text-danger">*</span>
+                <input asp-for="Remark" type="text" placeholder="Remark" class="form-control">
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-12">
+            <button type="submit" class="t-1 btn btn-primary">Save</button>
+        </div>
+    </div>
+
+</form>
+

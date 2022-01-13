@@ -1,0 +1,40 @@
+﻿@model QroApi.MODEL.PendingDMT
+@if (Model.list != null)
+{
+    if (Model.list.Count > 0)
+    {
+        foreach (var item in Model.list)
+        {
+            <tr>
+                @*<td><input type="checkbox" value="@item.Id" /></td>*@
+                <td>@item.SrNo</td>
+                <td>@item.MemberName</td>
+                <td>@item.Amount</td>
+                <td>@item.Status</td>
+                <td>@item.Account</td>
+                <td>@item.Ifsc</td>
+                <td>@item.Remitter</td>
+                <td>@item.BeneName</td>
+                <td>@item.TxnId</td>
+                <td>
+                    @item.TxnDate
+                    <input type="hidden" id="hdn-id" value="@item.Id" />
+                    <input type="hidden" id="hdn-txnid" value="@item.TxnId" />
+                    <input type="hidden" id="hdn-apitxnid" value="@item.ApiTxnId" />
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="10"> Transaction Not Found </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="10"> Transaction Not Found </td>
+    </tr>
+}

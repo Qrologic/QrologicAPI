@@ -1,0 +1,20 @@
+﻿@model QroApi.MODEL.CircleCodeModel
+@{ var i = 1;}
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @item.CircleName <input type="hidden" id="CircleId_@i" asp-for="@item.CircleId" />
+            </td>
+
+            <td>
+                <input type="text" id="CircleCode_@i" asp-for="@item.CircleCode" />
+            </td>
+           
+        </tr>
+        i = i + 1;
+    }
+}

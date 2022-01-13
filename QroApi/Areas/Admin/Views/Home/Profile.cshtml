@@ -1,0 +1,116 @@
+﻿@model QroApi.MODEL.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1> <i class="lnr-apartment opacity-6"></i> Profile </h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin/Home/"><i class="fa fa-user-circle-o"></i>Home</a></li>
+        <li class=""> Profile
+        <li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 ">
+                <div class="my-profile-wrapper">
+                    <div class="my-profile card-white">
+                        <h3>My Details <span style="float:right;">
+    <a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="member.EmployeePopup(@Model.Id)">Update Profile</a>
+</span></h3>
+                        <div class="row">
+
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Role</h4>
+                                <p>@Model.RoleName</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Name</h4>
+                                <p>@Model.Name</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Email</h4>
+                                <p>@Model.Email</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Mobile</h4>
+                                <p>@Model.Mobile</p>
+                            </div>
+
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Address</h4>
+                                <p>@Model.FullAddress</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>PanNumber</h4>
+                                <p>@Model.PanNumber</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>AadhaarNumber</h4>
+                                <p>@Model.AadhaarNumber</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Balance</h4>
+                                <p><span class="icon-rupee pos-unset fs-10"></span>@Model.Balance</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>DOJ</h4>
+                                <p>@Model.DOJ</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                <h4>Status</h4>
+                                <p class="color-red">@Model.Status</p>
+                            </div>
+                            <div class="col-6 col-sm-4 col-lg-3 mb-15">
+                                 </div>
+                        </div>
+                    </div>
+                    @*<div class="category">
+                        <div class="row">
+                            <div class="col-6 col-sm-3 col-lg-2">
+                                <div class="icon card-white">
+                                    <a>
+                                        <i class="change-mpin-icon"></i>
+                                        <h6 id="change-mpin">Change TPin</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3 col-lg-2">
+                                <div class="icon card-white">
+                                    <a>
+                                        <i class="forgot-mpin-icon"></i>
+                                        <h6 id="forgot-mpin">Forgot TPin</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3 col-lg-2">
+                                <div class="icon card-white">
+                                    <a>
+                                        <i class="commission-meter-icon"></i>
+                                        <h6 id="commission-meter">KYC Update</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-3 col-lg-2">
+                                <div class="icon card-white">
+                                    <a>
+                                        <i class="add-money-icon"></i>
+                                        <h6 id="add-money">Add Balance</h6>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>*@
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script src="~/CustomJS/Utility.js"></script>
+    <script src="~/CustomJS/Member.js"></script>
+}

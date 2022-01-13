@@ -1,0 +1,15 @@
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\QroApi.DLL.deps.json
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\QroApi.DLL.dll
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\ref\QroApi.DLL.dll
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\QroApi.DLL.pdb
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\QroApi.MODEL.dll
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\bin\Debug\net5.0\QroApi.MODEL.pdb
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.csproj.AssemblyReference.cache
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.AssemblyInfoInputs.cache
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.AssemblyInfo.cs
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.csproj.CoreCompileInputs.cache
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.csproj.CopyComplete
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.dll
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\ref\QroApi.DLL.dll
+D:\Project\Recharge\QrologicApi-Latest\QroApi\QroApi.DLL\obj\Debug\net5.0\QroApi.DLL.pdb

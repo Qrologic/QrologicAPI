@@ -1,0 +1,62 @@
+﻿
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "Pending Recharge";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-eg1-1" role="tabpanel">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed " style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            @*<th><input type="checkbox" onchange="common.SelectAllCheckBox('chk-select-all');" id="chk-select-all" /></th>*@
+                                            <th>SrNo</th>
+                                            <th>Member</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                            <th>Account</th>
+                                            <th>IFSC</th>
+                                            <th>Sender</th>
+                                            <th>Reciever</th>
+                                            <th>UniqueId</th>
+                                            <th>ApiTxnId</th>
+                                            <th>UTR</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-p-dmt">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        @*<div id="dv-btn">
+                            <input type="button" value="Check Status" onclick="dmtv2.TransactionEnquiry('Transaction Enquiry')" class="btn btn-warning" />
+                            <input type="button" value="Force Success" onclick="dmtv2.TransactionEnquiry('Success')" class="btn btn-success" />
+                            <input type="button" value="Force Failed" onclick="dmtv2.TransactionEnquiry('Failed')" class="btn btn-danger" />
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script src="~/CustomJS/v2-dmt.js"></script>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+            dmtv2.GetPending();
+        });
+    </script>
+}

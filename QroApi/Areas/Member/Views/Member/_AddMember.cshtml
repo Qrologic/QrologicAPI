@@ -1,0 +1,103 @@
+﻿@model QroApi.MODEL.MemberRegisterModel
+@section Styles{
+    <style>
+        .uppercase {
+            text-transform: uppercase !important;
+        }
+    </style>
+} 
+
+<form asp-action="AddMember" asp-area="Member" asp-controller="Member" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <input type="hidden" id="hdnUserRole" name="hdnUserRole" asp-for="UserRole" />
+    <input type="hidden" id="hdnPackageId" name="hdnPackageId" asp-for="PackageId" />
+    <input type="hidden" id="hdnCountryId" name="hdnCountryId" asp-for="CountryId" />
+    <input type="hidden" id="hdnStateId" name="hdnStateId" asp-for="StateId" />
+    <input type="hidden" id="hdnCityId" name="hdnCityId" asp-for="CityId" />
+    <input type="hidden" id="hdnPassword" name="hdnPassword" asp-for="Password" />
+    <input type="hidden" id="hdnTPassword" name="hdnTPassword" asp-for="TPassword" />
+    <input type="hidden" id="hdnMsrNo" asp-for="MsrNo" />
+    <span class="text-danger" id="spvalidation"></span>
+    <div class="row form-group">
+        <div class="col-sm-12">
+            <label asp-for="UserRole" class=""></label><span class="text-danger">*</span>
+            <select asp-for="UserRole" class="form-control">
+                <option>Select Role</option>
+            </select>
+            <span asp-validation-for="UserRole" class="text-danger"></span>
+        </div>
+        @*<div class="col-sm-6" >
+            <label asp-for="PackageId" class=""></label><span class="text-danger">*</span>
+            <select asp-for="PackageId" type="select" class="form-control">
+                <option value="">Select Package </option>
+            </select>
+            <span asp-validation-for="PackageId" class="text-danger"></span>
+        </div>*@
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="UserName"></label><span class="text-danger">*</span>
+            <input asp-for="UserName" type="text" placeholder="Full Name" class="form-control">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="Email" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Email" placeholder="Email" type="text" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="Mobile" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Mobile" placeholder="Mobile" type="text" class="form-control">
+            <span asp-validation-for="Mobile" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="PanNumber" class=""></label><span class="text-danger">*</span>
+            <input asp-for="PanNumber" placeholder="PAN Number" class="form-control uppercase">
+            <span asp-validation-for="PanNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="AadharNumber"></label><span class="text-danger"></span>
+            <input asp-for="AadharNumber" placeholder="Aadhar Number" type="text" class="form-control">
+            <span asp-validation-for="AadharNumber" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="Address" class=""></label>
+            <textarea asp-for="Address" placeholder="Address" class="form-control" type="text"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CountryId" class=""></label><span class="text-danger"></span>
+            <select asp-for="CountryId" onchange="utility.GetState(this.value)" type="select" class="form-control">
+                <option value="">Select Country</option>
+            </select>
+            <span asp-validation-for="CountryId" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="StateId" class=""></label><span class="text-danger"></span>
+            <select asp-for="StateId" onchange="utility.GetCity(this.value)" type="select" class="form-control">
+                <option value="0">Select State</option>
+            </select>
+            <span asp-validation-for="StateId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CityId" class=""></label><span class="text-danger"></span>
+            <select asp-for="CityId" class="form-control" type="select">
+                <option value="">Select City</option>
+            </select>
+        </div>
+        <div class="col-sm-6" id="divPassword">
+            <label asp-for="Password" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Password" placeholder="Password" class="form-control">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <input type="submit" value="Save" class="mt-1 btn col-2 btn-primary" style="float:right;" />
+</form>

@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "MenuRights";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link href="~/assets/Panel/jsTree/gijgo.min.css" rel="stylesheet" />
+<script src="~/assets/Panel/jsTree/gijgo.min.js"></script>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <label for="exampleInputEmail1" class="font-weight-bold">User Type</label>
+                                    <div class="form-group">
+                                        @* <label class="control-label col-md-3"></label>*@
+                                        <div class="input-group">
+                                            <select id="UserRole" onchange="menu.BindMenuTree(this.value);" class="form-control" style="border-radius: 0.25rem;"> </select>
+                                            @*<div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fa fa-user"></span>
+                        </div>
+                    </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div id="treemenu"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <button id="btnSave" class="btn btn-primary" onclick="menu.SaveCheckedTreeNodes();">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="table-responsive" id="tableRole">
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+            $.when(menu.GetRoleForRights()).then(function () {
+                $('#btnSave').hide();
+            }).then(function () {
+                menu.BindRoleTable();
+            });
+        });
+    </script>
+}

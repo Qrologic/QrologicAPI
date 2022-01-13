@@ -1,0 +1,26 @@
+﻿
+
+@model QroApi.MODEL.ServiceModel
+
+
+<span class="text-danger" id="spvalidation"></span>
+<form asp-action="AddService" asp-controller="Recharge" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="ServiceName"></label><span class="text-danger">*</span>
+                <input asp-for="ServiceName" type="text" placeholder="Service Name" class="form-control">
+                <span asp-validation-for="ServiceName" class="text-danger"></span>
+                <input type="hidden" asp-for="ServiceId" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" class="t-1 btn btn-primary">Save</button>
+        </div>
+    </div>
+
+
+
+</form>

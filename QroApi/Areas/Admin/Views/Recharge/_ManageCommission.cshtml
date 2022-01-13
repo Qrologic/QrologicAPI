@@ -1,0 +1,44 @@
+﻿@model QroApi.MODEL.RechargeCommission
+@{ var i = 1;}
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+<tr>
+    <td>@i</td>
+    <td>
+        @item.ServiceName
+    </td>
+    <td>
+        @item.OperatorName
+        <input type="hidden" id="OperatorId_@i" asp-for="@item.OperatorId" />
+        <input type="hidden" id="ActiveApi_@i" asp-for="@item.ActiveApi" />
+    </td>
+    <td>
+        <input type="text" id="sdComm_@i" asp-for="@item.sdComm" style="width:85px;" />
+        <input type="checkbox" id="sdIsFlat_@i" asp-for="@item.sdIsFlat" />
+    </td>
+    <td>
+        <input type="text" id="mdComm_@i" asp-for="@item.mdComm" style="width:85px;" />
+        <input type="checkbox" id="mdIsFlat_@i" asp-for="@item.mdIsFlat" />
+    </td>
+    <td>
+        <input type="text" id="dtComm_@i" asp-for="@item.dtComm" style="width:85px;" />
+        <input type="checkbox" id="dtIsFlat_@i" asp-for="@item.dtIsFlat" />
+    </td>
+    <td>
+        <input type="text" id="rtComm_@i" asp-for="@item.rtComm" style="width:85px;" />
+        <input type="checkbox" id="rtIsFlat_@i" asp-for="@item.rtIsFlat" />
+    </td>
+    <td>
+        <input type="text" id="gstRate_@i" asp-for="@item.gstRate" style="width:85px;" />
+    </td>
+    <td>
+        <input type="text" id="tdsRate_@i" asp-for="@item.tdsRate" style="width:85px;" />
+    </td>
+    <td>
+    </td>
+</tr>
+        i = i + 1;
+    }
+}

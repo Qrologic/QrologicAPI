@@ -1,0 +1,24 @@
+﻿
+
+@model QroApi.MODEL.PackageModel
+
+
+<span class="text-danger" id="spvalidation"></span>
+<form asp-action="AddPackage" asp-controller="Utility" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="PackageName"></label><span class="text-danger">*</span>
+                <input asp-for="PackageName" type="text" placeholder="Package Name" class="form-control">
+                <span asp-validation-for="PackageName" class="text-danger"></span>
+                <input type="hidden" asp-for="PackageId" class="form-control" />
+                <input type="hidden" asp-for="MsrNo" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" class="t-1 btn btn-primary">Save</button>
+        </div>
+    </div>
+
+</form>

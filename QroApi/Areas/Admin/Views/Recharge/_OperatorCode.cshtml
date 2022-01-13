@@ -1,0 +1,31 @@
+﻿@model QroApi.MODEL.OperatorCodeModel
+@{ var i = 1;}
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @item.OperatorName <input type="hidden" id="OperatorId_@i" asp-for="@item.OperatorId" />
+            </td>
+
+            <td>
+                <input type="text" id="OperatorCode_@i"  asp-for="@item.OperatorCode" />
+            </td>
+            <td>
+                <input type="text" id="Commission_@i" asp-for="@item.Commission" style="width:85px;" />
+            </td>
+            <td>
+                <input type="checkbox" id="CommissionIsFlat_@i" asp-for="@item.CommissionIsFlat" />
+            </td>
+            <td>
+                <input type="text" id="Surcharge_@i" asp-for="@item.Surcharge" style="width:85px;" />
+            </td>
+            <td>
+                <input type="checkbox" id="SurchargeIsFlat_@i" asp-for="@item.SurchargeIsFlat" />
+            </td>
+        </tr>
+        i = i + 1;
+    }
+}

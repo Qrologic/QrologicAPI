@@ -1,0 +1,338 @@
+﻿
+@{
+    ViewData["Title"] = "DMT";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="card card-body" style="border-radius: 0px 0px 6px 6px;margin-bottom: 0px;">
+        <div style="background-color:#fff;" class="dmt-form add-bene-wrapper">
+            <form role="form" action="" method="post" class="f1">
+                <div class="bene-list-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="stepper-row">
+                                <h4>
+                                    <span class="color-black">Domestic Money Transfer(DMT) </span>
+                                </h4>
+                                <div class="heading-right-sec" id="dv-rem-detail" style="display:none;">
+                                    <div class="sec">
+                                        <p>Name <span class="text-secondary" id="sp-reg-rem-name"></span></p>
+                                    </div>
+                                    <div class="sec">
+                                        <p>
+                                            Total Limit<span class="color-green">
+                                                <i class="icon-rupee fs-10 pos-unset fa fa-rupee"></i>
+                                                <span class="color-green" id="reg-rem-total-limit"></span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="sec">
+                                        <p>
+                                            Available Limit<span class="text-danger">
+                                                <i class="fa fa-rupee icon-rupee fs-10 pos-unset"></i>
+                                                <span class="text-danger" id="reg-rem-avl-limit"></span>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="f1-steps" style="display:none;">
+                    <div class="f1-progress">
+                        <div class="f1-progress-line" data-now-value="12.5" data-number-of-steps="4" style="width: 12.5%;"></div>
+                    </div>
+                    <div class="f1-step active">
+                        <div class="f1-step-icon">1</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">2</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">3</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">4</div>
+                    </div>
+                </div>
+                <input type="hidden" id="stateresp" />
+                <fieldset id="field-1" style="display:block;">
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <div class="form-col pre-input">
+                                <label for="custMobileNo">Enter Mobile Number<sup>*</sup></label>
+                                <input type="text" placeholder="Number" class="form-control" maxlength="10" onkeypress="return common.isNumberKey(event);" onfocus="dmt.ResetValidation('sp-rem-mobile');" id="remitter-mobile" data-val="true">
+                                <span id="sp-rem-mobile" class="text-danger"></span>
+                            </div>
+                            <div class="f1-buttons text-left">
+                                <button type="button"  class="btn btn-next btn-primary" id="btn-rem" onclick="dmt.RemitterDetails();">Proceed</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="field-2">
+                    <div class="row form-group">
+                        <div class="col-12 col-sm-12 col-lg-12">
+                            <div class="form-col">
+                                <label for="customerMobileNo">Mobile Number</label>
+                                <p><label for="customerMobileNo" id="rem-mobile"></label></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">First Name <sup>*</sup></label>
+                                <input type="text" placeholder="First Name" id="rem-fname" onkeypress="dmt.ResetValidation('sp-rem-fname');" class="form-control" data-val="true">
+                                <span id="sp-rem-fname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Last Name<sup>*</sup></label>
+                                <input type="text" placeholder="Last Name" id="rem-lname" onkeypress="dmt.ResetValidation('sp-rem-lname');" class="form-control" data-val="true">
+                                <span id="sp-rem-lname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Date of Birth<sup>*</sup></label>
+                                <input type="date" class="form-control" id="rem-dob" onfocus="dmt.ResetValidation('sp-rem-dob');" data-val="true">
+                                <span id="sp-rem-dob" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Address<sup>*</sup></label>
+                                <input type="text" placeholder="Address" id="rem-address" onkeypress="dmt.ResetValidation('sp-rem-address');" class="form-control" data-val="true">
+                                <span id="sp-rem-address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Pin Code <sup>*</sup></label>
+                                <input type="text" placeholder="Pin Code" maxlength="6" onkeypress="return common.isNumberKey(event);" onfocus="dmt.ResetValidation('sp-rem-pincode');" id="rem-pincode" class="form-control" data-val="true">
+                                <span id="sp-rem-pincode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">OTP<sup>*</sup></label>
+                                <input type="text" placeholder="OTP" onkeypress="return common.isNumberKey(event);" onfocus="dmt.ResetValidation('sp-rem-otp');" id="rem-otp" class="form-control" data-val="true">
+                                <span id="sp-rem-otp" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f1-buttons text-left">
+                        <button type="button" class="btn btn-next btn-primary" id="btn-rem-reg" onclick="dmt.RemitterRegistration()">Submit</button>
+                    </div>
+                </fieldset>
+                <fieldset id="field-3">
+
+                    <div class="add-beneficiary add-account-number-2">
+                        <div class="recharge-cols-lt">
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col beneficiary">
+                                        <div class="account-beneficery">
+                                            @*<div class="add-b d-lg-inline-block mob-hide ng-star-inserted" id="btn-toggle-1"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></div>*@
+                                            <h5 class="recharge-bill-payment--form-head  d-lg-inline-block">Add Beneficiary</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Beneficiary Account Number <sup>*</sup></label>
+                                            <input type="text" placeholder="Beneficiary Account Number" id="reg-bene-account" onkeypress="dmt.ResetValidation('sp-val-beneaccount');" class="form-control" data-val="true">
+                                            <span id="sp-val-beneaccount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Select Bank   <sup>*</sup></label>
+                                        <select class="form-control select2" name="bankname" id="reg-bene-bank" onchange="dmt.GetIfsc(this.value)">
+                                        </select>
+                                        <span id="sp-val-benebank" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class ifsc-btn">
+                                        <label for="customerFirstName">IFSC<sup>*</sup></label>
+                                        <input type="text" placeholder="IFSC" id="reg-bene-ifsc" onkeypress="dmt.ResetValidation('sp-val-beneifsc');" class="form-control" data-val="true">
+                                        <span id="sp-val-beneifsc" class="text-danger"></span>
+                                        @*<div class="ifsc-verified">
+                                            <button type="button" id="btn-bene-verify" onclick="dmt.VerifyBeneficiary()" class="btn btn-next btn-primary">Verify</button>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Beneficiary Name <sup>*</sup></label>
+                                            <input type="text" placeholder="Beneficiary Name" id="reg-bene-name" onkeypress="dmt.ResetValidation('sp-val-benename');" class="form-control" data-val="true">
+                                            <span id="sp-val-benename" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">DOB <sup>*</sup></label>
+                                            <input type="date" placeholder="DOB" id="reg-bene-dob" onkeypress="dmt.ResetValidation('sp-val-benedob');" class="form-control" data-val="true">
+                                            <span id="sp-val-benedob" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Address <sup>*</sup></label>
+                                            <input type="text" placeholder="Address" id="reg-bene-address" onkeypress="dmt.ResetValidation('sp-val-beneaddress');" class="form-control" data-val="true">
+                                            <span id="sp-val-beneaddress" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Pincode <sup>*</sup></label>
+                                            <input type="text" placeholder="Pincode" id="reg-bene-pincode" onkeypress="dmt.ResetValidation('sp-val-benepincode');" class="form-control" data-val="true">
+                                            <span id="sp-val-benepincode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-6 col-sm-6 col-lg-6">
+                                    <div class="f1-buttons text-left">
+                                        <button type="button" class="btn btn-success"  id="btn-bene-verify" onclick="dmt.VerifyBeneficiary()">Verify</button>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-sm-6 col-lg-6">
+                                    <div class="f1-buttons text-right">
+                                        <button type="button" class="btn btn-previous btn-primary" onclick="dmt.RegisterBeneficiary()" id="btn-bene-reg">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recharge-cols-rt">
+                            <div class="last-recharge ng-star-inserted" id="style-3">
+                                <h4 class="head--h5 head--h5-mobile ng-star-inserted"> Beneficiary</h4>
+                                <div class="loader-center">
+                                    <div class="loader4"></div>
+                                </div>
+                                <ul id="bene-list">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                   
+                </fieldset>
+                <fieldset id="field-4">
+                    <div class="row form-group">
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Beneficiary Name</label>
+                                <p id="p-b-name">ManojSaini </p>
+                                <input type="hidden" id="hdn-b-name" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Account Number</label>
+                                <p id="p-b-accno">54638100008092</p>
+                                <input type="hidden" id="hdn-b-accno" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Bank Name</label>
+                                <p id="p-b-bank">BANK OF BARODA</p>
+                                <input type="hidden" id="hdn-b-bank" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">IFSC Code   <sup>*</sup></label>
+                                <p id="p-b-ifsc">BARB0chomux</p>
+                                <input type="hidden" id="hdn-b-ifsc" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display:none;">
+                            <div class="form-col">
+                                <label for="pinCode">Select Transfer Type</label>
+                                <div class="radio-col">
+                                    <label class="radio-row m-0 fw-500">
+                                        IMPS
+                                        <input type="radio" name="IMPS" value="IMPS" checked="">
+                                        <span class="checkmark-radio"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-col">
+                                    <label class="radio-row m-0 fw-500">
+                                        NEFT
+                                        <input type="radio" name="NEFT" value="NEFT">
+                                        <span class="checkmark-radio"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col pre-text">
+                                <label for="pinCode">
+                                    Enter Amount You Wish To Transfer <sup>*</sup>
+                                </label>
+                                <input type="text" id="amount" name="amount" class="gc-w pl-10" maxlength="6" minlength="2" required="">
+                                <i class="icon-rupee fs-10"></i>
+                                <button type="submit" disabled="" class="btn btn-disable btn-gc">Get Charges</button>
+                            </div>
+                            <span class="error-text"></span>
+                        </div>
+                    </div>
+                    <div class="f1-buttons text-left">
+                        <button type="button" class="btn btn-previous btn-light">Previous</button>
+                        <button type="button" class="btn btn-next btn-primary">Next</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+@*<script src="~/assets/Panel/js/jquery.backstretch.min.js"></script>
+    <script src="~/assets/Panel/js/scripts.js"></script>*@
+<script src="~/CustomJS/DMT.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".add-account-number-1 #btn-toggle-1").click(function () {
+            $(".add-account-number-1").addClass("add-here");
+            $(".add-account-number-2").removeClass("add-here");
+        });
+    });
+    $(document).ready(function () {
+        $(".add-account-number-2 #btn-toggle-1").click(function () {
+            $(".add-account-number-2").addClass("add-here");
+            $(".add-account-number-1").removeClass("add-here");
+        });
+    });
+</script>
+

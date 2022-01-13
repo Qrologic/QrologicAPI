@@ -1,0 +1,195 @@
+﻿@model QroApi.MODEL.LoginRequest
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Login</title>
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/Linearicons-Free-v1.0.0-icon-font.min.css">
+    @*<link rel="stylesheet" type="text/css" href="~/assets/login/css/animate-animate.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-hamburgers-hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-animsition.min.css">*@
+    @*<link rel="stylesheet" type="text/css" href="~/assets/login/css/select2-select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/daterangepicker-daterangepicker.css">*@
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/login/css/css-main.css">
+    <link rel="stylesheet" href="~/assets/login/css/style.css">
+    <link href="~/assets/Panel/sweetalert/sweetalert2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main-div">
+        <div class="left-slider-div">
+            <div>
+                <div class="w3-content w3-display-container">
+             
+                    <img class="mySlides" src="~/assets/login/image/all-services-qrollogi-.jpg" style="width:100%">
+                    <img class="mySlides" src="~/assets/login/image/all-services-qrollogiii-.jpg" style="width:100%">
+                    <img class="mySlides" src="~/assets/login/image/all-services-qrologi_12.jpg" style="width:100%">
+                    <img class="mySlides" src="~/assets/login/image/recharge.jpg" style="width:100%">
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-slider-div">
+            <div>
+                <form id="loginform" asp-controller="Account" asp-action="AdminLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" data-ajax-success="OnSuccess" data-ajax-complete="OnComplete" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure" class="login100-form validate-form">
+                    <div style="text-align: center;margin-bottom: 0px;"><img src="~/assets/login/image/bg.jpg" id="company-logo" alt=""></div>
+
+                   
+                    <span class="login100-form-title p-b-43">
+                        Login with your <span class="company-name"></span>
+                    </span>
+                    <span class="login100-form-title p-b-43" style="font-size: 16px;color: #0095ca;">
+                        <span class="company-name"></span> user? No need to create a new account
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input asp-for="UserId" class="input100" onkeypress="ClearVal()">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Email/Mobile Number is Compulsory.</span>
+                    </div>
+                    <span id="message" class="text-danger"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input type="password" name="password" asp-for="Password" onkeypress="ClearVal()" class="input100">
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Password</span>
+                    </div>
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div class="contact100-form-checkbox">
+                            <!-- <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"> -->
+                            <label style="margin: 10px 1px 19px; color: #536e92; font-size: 13px;letter-spacing: normal;" for="ckb1">
+                                @*PLEASE NOTE: Paytm and Paytm for Business Dashboard password are same*@
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            <i class="fa fa-lock" aria-hidden="true" style="font-size: 17px;"></i>
+                            &nbsp; Sign in Securely &nbsp; <i class="fa fa-angle-right" style="font-size: 17px;"></i>
+                        </button>
+                        <span></span>
+                    </div>
+                    <div class="text-center p-t-46 p-b-20">
+                        <span class="txt2">
+                            <a href="#">Forgot Password</a>
+                        </span>
+                    </div>
+                    <!-- <div class="login100-form-social flex-c-m">
+                        <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                            <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div> -->
+                </form>
+
+            </div>
+        </div>
+
+        @*<form id="loginform" asp-controller="Account" asp-action="AdminLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+
+                <div class="_form-08-main">
+
+                    <div class="form-group">
+                        <input asp-for="UserId" class="form-control" placeholder="Email/Mobile Number" required="" aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" asp-for="Password" class="form-control" type="text"
+                               placeholder="Enter Password" required="" aria-required="true">
+                        <div class="form-group">
+                            <div class="_btn_04">
+                                <button class="btn btn-block btn-lg btn-info" type="submit">Sign in</button>
+                            </div>
+                        </div>
+
+                        <a href="#" style="line-height: 3;float: right;margin-top: -60px;">Forgot Password</a>
+                    </div>
+
+                </div>
+            </form>*@
+    </div>
+    <script src="~/assets/login/js/jquery-jquery-3.2.1.min.js"></script>
+    <script src="~/assets/login/js/js-animsition.min.js"></script>
+    <script src="~/assets/login/js/js-popper.js"></script>
+    <script src="~/assets/login/js/js-bootstrap.min.js"></script>
+    <script src="~/assets/login/js/select2-select2.min.js"></script>
+    <script src="~/assets/login/js/daterangepicker-moment.min.js"></script>
+    <script src="~/assets/login/js/daterangepicker-daterangepicker.js"></script>
+    <script src="~/assets/login/js/countdowntime-countdowntime.js"></script>
+    <script src="~/assets/login/js/1841-js-main.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+   
+    <script src="~/assets/Panel/sweetalert/sweetalert2.js"></script>
+    <script src="~/CustomJS/Common.js"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-23581568-13');
+    </script>
+    @*<script defer src="~/assets/login/js/beacon.min.js"
+        data-cf-beacon='{"rayId":"69a4ae82b998093d","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.9.0","si":100}'></script>*@
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+        $(function () {
+            common.GetCompanyLogo('', 'Account');
+        });
+
+        function OnBegin() {
+            //common.ShowLoader();
+        }
+
+        function OnFailure(response) {
+            $('#message').text('Something Went Wrong !');
+            
+        }
+        function OnSuccess(response) {
+          
+            if (response.status) {
+                location.replace(response.redirectUrl);
+            }
+            else {                
+                $('#message').text(response.message);
+            }
+        }
+        function OnComplete() {
+            //SweetAlert.SwalAlert("Something Went Wrong !", "Login Failed", "warning", false, "#3085d6", "", "Ok", false);
+        }
+        function ClearVal() {
+            $('#message').text('');
+        }
+    </script>
+</body>
+</html>

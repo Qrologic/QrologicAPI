@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewData["Title"] = "dmtRefund";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dmt-second">
+    <div class="container-fluid" style="overflow: auto;">
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="table-responsive" style="overflow: hidden;">
+                                        <div class="basic-form">
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                                    <p class="text-muted m-b-15 f-s-12">Find Refund Transaction</p>
+                                                    <div style="position: relative;">
+                                                        <input type="text" id="txReferenceId" placeholder="Transaction Id" class="form-control bigElement numberOnly enterAction text-style">
+                                                        <button class="btn btn-primary find-buttons" onclick="dmtv2.FindTransaction();" type="button" title="Find Customer">Find</button>
+                                                    </div>
+                                                    <span id="sp-rem-mobile" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mobile-table table-responsive" style="overflow: hidden; margin-top: 15px;">
+                                        <div class="basic-form">
+                                            <div class="row">
+                                                <div class="form-group col-12" style="margin-bottom: 0px;">
+                                                    <table id="dataTable" class="display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>SrNo</th>
+                                                                <th>Member</th>
+                                                                <th>Amount</th>
+                                                                <th>Status</th>
+                                                                <th>Account</th>
+                                                                <th>IFSC</th>
+                                                                <th>Sender</th>
+                                                                <th>Reciever</th>
+                                                                <th>TxnId</th>
+                                                                <th>Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tbody-dmt-refund">
+                                                         
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div>
+                                        <button type="submit" onclick="dmtv2.SendRefundOTP()" class=" btn btn-danger refund-find">Refund</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="sendMoneyModel" class="modal bs-add-beneficiary refund-transaction" tabindex="-1" role="dialog" aria-hidden="true" style="background: rgba(0, 0, 0, 0.56);">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Transaction Id</h4>
+                <button type="button" class="close" onclick="Close()"  style="margin-right: 0px; margin-top: -7px;">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="display: flex;">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <div class="form-group">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <input type="text" id="txt-refund-otp" placeholder="OTP"  class="form-control bigElement numberOnly">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="footerButtons">
+                <button type="button" id="btn-submit-otp"  onclick="dmtv2.RefundTransaction()" class="btn btn-primary">Find</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/CustomJS/v2-dmt.js"></script>
+<script>
+    function Close() {
+        $('.refund-transaction').removeClass('show');
+    }
+</script>

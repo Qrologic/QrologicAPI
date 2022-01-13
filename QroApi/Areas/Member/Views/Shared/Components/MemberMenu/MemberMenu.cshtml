@@ -1,0 +1,67 @@
+﻿@model QroApi.MODEL.MenuModel
+
+@if (Model.listMenu != null)
+{
+    var parentList = Model.listMenu.Where(x => x.ParentId == 0 && x.Level == 1).OrderBy(x => x.Position).ToList();
+    @foreach (var parent in parentList)
+    {
+
+
+        var childList = Model.listMenu.Where(x => x.ParentId == parent.MenuId).OrderBy(x => x.Position).ToList();
+        @if (childList.Count == 0)
+        {
+            <li>
+                @{var area = parent.ControllerName.ToLower() == "account" ? "" : "/Member"; }
+                <a href="@area/@parent.ControllerName/@parent.ActionName" onclick="removeActiveClass(@childList.Count,`@parent.MenuName`,``,`@parent.MenuIcon`);">
+                    <i class="metismenu-icon @parent.MenuIcon"></i>@parent.MenuName
+                    @*<i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>*@
+                </a>
+            </li>
+        }
+        else
+        {
+            <li id="menu_@parent.MenuId" onclick="menu.SetMenuInCookie(@parent.MenuId)" class="@parent.ClassName">
+                <a href="javascript:void(0);" onclick="removeActiveClass(@childList.Count,`@parent.MenuName`,``,`@parent.MenuIcon`);">
+                    <i class="metismenu-icon @parent.MenuIcon"></i>@parent.MenuName
+                    <i class="metismenu-state-icon fa fa-angle-down caret-left opacity-5"></i>
+                </a>
+
+                @foreach (var child in childList)
+                {
+                    var area = child.ControllerName.ToLower() == "account" ? "" : "/Member";
+                    <ul class="mm-collapse @child.ClassName">
+                        <li>
+                            <a href="@area/@child.ControllerName/@child.ActionName" id="menu_@child.MenuId" onclick="menu.SubMenuActive(@child.MenuId,`@parent.MenuTitle`,`@child.MenuTitle`,`@parent.MenuIcon`)">
+                                <i class="metismenu-icon"></i> @child.MenuName
+                            </a>
+                        </li>
+                    </ul>
+                }
+            </li>
+        }
+
+    }
+}
+<script>
+
+    $(function () {
+        var menuId = sessionStorage.getItem("ActiveSubMenu");
+        if (menuId != null || menuId != undefined) {
+            $(`#menu_` + menuId).addClass('menu-active');
+        }
+
+        function removeActiveClass(cnt, firstLevelMenuName, secondLevelMenuName, menuicon) {
+            sessionStorage.setItem("firstLevelMenuName", firstLevelMenuName);
+            sessionStorage.setItem("secondLevelMenuName", secondLevelMenuName);
+            sessionStorage.setItem("menuicon", menuicon);
+
+            //var menuId = sessionStorage.getItem("ActiveSubMenu");
+            //console.log(menuId);
+            //if (cnt == 0) {
+            //    $(`#menu_` + menuId).removeClass('menu-active');
+            //    sessionStorage.removeItem("ActiveSubMenu");
+            //}
+        }
+    });
+
+</script>

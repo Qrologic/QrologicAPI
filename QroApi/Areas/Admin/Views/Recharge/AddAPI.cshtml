@@ -1,0 +1,245 @@
+﻿
+@model QroApi.MODEL.RechargeApiModel
+@{
+    ViewData["Title"] = "AddAPI";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <form asp-action="AddAPI" asp-controller="Recharge" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+          data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 form-group">
+                                <strong class="badge badge-warning">Note : Fields with <span class="text-danger">*</span> are mandatory fields.</strong>
+                                <strong class="badge badge-info">Note : Number=@@nnn@@,Operatorcode=@@ooo@@,Circlecode=@@ccc@@,Amount=@@aaa@@,AgentId=@@rrr@@</strong>
+                                <input type="hidden" asp-for="APIID" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label asp-for="APIName"></label><span class="text-danger">*</span>
+                                <input asp-for="APIName" type="text" placeholder="API Name" class="form-control">
+                                <span asp-validation-for="APIName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label asp-for="URL"></label><span class="text-danger">*</span>
+                                <input asp-for="URL" type="text" placeholder="Recharge Url" class="form-control">
+                                <span asp-validation-for="URL" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label asp-for="BalanceURL"></label><span class="text-danger">*</span>
+                                <input asp-for="BalanceURL" type="text" placeholder="Balance URL" class="form-control">
+                                <span asp-validation-for="BalanceURL" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label asp-for="StatusURL"></label><span class="text-danger">*</span>
+                                <input asp-for="StatusURL" type="text" placeholder="Status URL" class="form-control">
+                                <span asp-validation-for="StatusURL" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                <label asp-for="ResponseType">Response Type(Json)</label><span class="text-danger">*</span>
+                                <input asp-for="ResponseType" type="text" placeholder="Response Type" class="form-control">
+                                <span asp-validation-for="ResponseType" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <div class="row  form-group">
+                            <div class="col-md-12">
+                                <span class="badge badge-info btn-block text-left">Response Parameters</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label asp-for="paramStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="paramStatus" type="text" placeholder="Status" class="form-control">
+                                <span asp-validation-for="paramStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="paramTxnId"></label><span class="text-danger">*</span>
+                                <input asp-for="paramTxnId" type="text" placeholder="TxnId" class="form-control">
+                                <span asp-validation-for="paramTxnId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="paramApiTxnId"></label><span class="text-danger">*</span>
+                                <input asp-for="paramApiTxnId" type="text" placeholder="ApiTxnId" class="form-control">
+                                <span asp-validation-for="paramApiTxnId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+
+                            <div class="col-md-4">
+                                <label asp-for="paramOprId"></label><span class="text-danger">*</span>
+                                <input asp-for="paramOprId" type="text" placeholder="OprId" class="form-control">
+                                <span asp-validation-for="paramOprId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="paramErrCode"></label>
+                                <input asp-for="paramErrCode" type="text" placeholder="Error Code" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="paramErrMsg"></label>
+                                <input asp-for="paramErrMsg" type="text" placeholder="Error Message" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label asp-for="SuccessStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="SuccessStatus" type="text" placeholder="Success Status" class="form-control">
+                                <span asp-validation-for="SuccessStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="PendingStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="PendingStatus" type="text" placeholder="Pending Status" class="form-control">
+                                <span asp-validation-for="PendingStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="FailedStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="FailedStatus" type="text" placeholder="Failed Status" class="form-control">
+                                <span asp-validation-for="FailedStatus" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="row  form-group">
+                            <div class="col-md-12">
+                                <span class="badge badge-info btn-block text-left">Check Status Parameters</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                                <label asp-for="sprmStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="sprmStatus" type="text" placeholder="Status" class="form-control">
+                                <span asp-validation-for="sprmStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="sprmTxnId"></label><span class="text-danger">*</span>
+                                <input asp-for="sprmTxnId" type="text" placeholder="TxnId" class="form-control">
+                                <span asp-validation-for="sprmTxnId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="sprmApiTxnId"></label><span class="text-danger">*</span>
+                                <input asp-for="sprmApiTxnId" type="text" placeholder="ApiTxnId" class="form-control">
+                                <span asp-validation-for="sprmApiTxnId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="sprmOprId"></label><span class="text-danger">*</span>
+                                <input asp-for="sprmOprId" type="text" placeholder="OprId" class="form-control">
+                                <span asp-validation-for="sprmOprId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                                <label asp-for="sSuccessStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="sSuccessStatus" type="text" placeholder="Success Status" class="form-control">
+                                <span asp-validation-for="sSuccessStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="sPendingStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="sPendingStatus" type="text" placeholder="Pending Status" class="form-control">
+                                <span asp-validation-for="sPendingStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3">
+                                <label asp-for="sFailedStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="sFailedStatus" type="text" placeholder="Failed Status" class="form-control">
+                                <span asp-validation-for="sFailedStatus" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <span class="badge badge-info btn-block text-left">Callback Parameters</span>
+                            </div>
+
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label asp-for="CallbackStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="CallbackStatus" type="text" placeholder="Status" class="form-control">
+                                <span asp-validation-for="CallbackStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="CallbackTxnId"></label><span class="text-danger">*</span>
+                                <input asp-for="CallbackTxnId" type="text" placeholder="TxnId" class="form-control">
+                                <span asp-validation-for="CallbackTxnId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="CallbackApiId"></label><span class="text-danger">*</span>
+                                <input asp-for="CallbackApiId" type="text" placeholder="ApiTxnId" class="form-control">
+                                <span asp-validation-for="CallbackApiId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+
+                            <div class="col-md-4">
+                                <label asp-for="CallbackOperatorId"></label><span class="text-danger">*</span>
+                                <input asp-for="CallbackOperatorId" type="text" placeholder="OprId" class="form-control">
+                                <span asp-validation-for="CallbackOperatorId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="CallbackErrorCode"></label>
+                                <input asp-for="CallbackErrorCode" type="text" placeholder="ErrCode" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="CallbackErrorCode"></label>
+                                <input asp-for="CallbackErrorCode" type="text" placeholder="ErrMsg" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label asp-for="cSuccessStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="cSuccessStatus" type="text" placeholder="Success Status" class="form-control">
+                                <span asp-validation-for="sSuccessStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="cPendingStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="cPendingStatus" type="text" placeholder="Pending Status" class="form-control">
+                                <span asp-validation-for="cPendingStatus" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="cFailedStatus"></label><span class="text-danger">*</span>
+                                <input asp-for="cFailedStatus" type="text" placeholder="Failed Status" class="form-control">
+                                <span asp-validation-for="cFailedStatus" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <span class="badge badge-info btn-block text-left">Balance Parameters</span>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label asp-for="bparm"></label><span class="text-danger">*</span>
+                                <input asp-for="bparm" type="text" placeholder="Parameter Name" class="form-control">
+                                <span asp-validation-for="bparm" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="submit" value="Submit" class="mt-1 btn btn-primary" />
+                            <a href="/Admin/Recharge/ListAPI" class="btn btn-danger">Back To List</a>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+        });
+    </script>
+}
+

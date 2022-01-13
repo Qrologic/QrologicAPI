@@ -1,0 +1,34 @@
+﻿@model QroApi.MODEL.Top10Transaction
+<table class="align-middle text-truncate mb-0 table table-borderless table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">SrNo</th>
+            <th class="text-center">Detail</th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Service</th>
+            <th class="text-center">Date</th>
+            <th class="text-center">Remark</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.list != null)
+        {
+            foreach (var item in Model.list)
+            {
+                <tr>
+                    <td class="text-center text-muted" style="width: 80px;">@item.SrNo</td>
+                    <td class="text-center">@Html.Raw(item.Action)</td>
+                    <td class="text-center">@Html.Raw(@item.Amount)</td>
+                    <td class="text-center">
+                        @Html.Raw(item.Status)
+                    </td>
+                    <td class="text-center">@item.Service</td>
+                    <td class="text-center">@item.Date</td>
+                    <td class="text-center">@item.Remark</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

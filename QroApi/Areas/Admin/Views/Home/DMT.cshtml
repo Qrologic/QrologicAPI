@@ -1,0 +1,398 @@
+﻿
+@{
+    ViewData["Title"] = "DMT";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12">
+    <div class="card card-body" style="border-radius: 0px 0px 6px 6px;margin-bottom: 0px;">
+        <div style="background-color:#fff;" class="dmt-form add-bene-wrapper">
+            <form role="form" action="" method="post" class="f1">
+               <div class="bene-list-wrapper">
+                   <div class="row">
+                       <div class="col-lg-12">
+                           <div class="stepper-row">
+                               <h4>
+                                   <span class="color-black">Remitter Registration </span>
+                               </h4>
+                               <div class="heading-right-sec">
+                                   <div class="sec">
+                                       <p>Name <span class="color-green">Ashok Mali</span></p>
+                                   </div>
+                                   <div class="sec">
+                                       <p>
+                                           Total Limit<span class="color-green">
+                                               <i class="icon-rupee fs-10 pos-unset"></i>
+                                               25000
+                                           </span>
+                                       </p>
+                                   </div>
+                                   <div class="sec">
+                                       <p>
+                                           Available Txn Limit<span class="color-green">
+                                               <i class="icon-rupee fs-10 pos-unset"></i>
+                                               24999
+                                           </span>
+                                       </p>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+                <br />
+                <div class="f1-steps" style="display:none;">
+                    <div class="f1-progress">
+                        <div class="f1-progress-line" data-now-value="12.5" data-number-of-steps="4" style="width: 12.5%;"></div>
+                    </div>
+                    <div class="f1-step active">
+                        <div class="f1-step-icon">1</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">2</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">3</div>
+                    </div>
+                    <div class="f1-step">
+                        <div class="f1-step-icon">4</div>
+                    </div>
+                </div>
+                <fieldset>
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <div class="form-col pre-input">
+                                <label for="custMobileNo">Enter Mobile Number<sup>*</sup></label>
+                                <input type="text" placeholder="Number" class="form-control" data-val="true">
+                            </div>
+                            <div class="f1-buttons text-left">
+                                <button type="button" class="btn btn-next btn-primary">Proceed</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row form-group">
+                        <div class="col-12 col-sm-12 col-lg-12">
+                            <div class="form-col">
+                                <label for="customerMobileNo">Mobile Number</label>
+                                <p>9079616601</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">First Name <sup>*</sup></label>
+                                <input type="text" placeholder="First Name" class="form-control" data-val="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Last Name <sup>*</sup></label>
+                                <input type="text" placeholder="Last Name" class="form-control" data-val="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Date of Birth  <sup>*</sup></label>
+                                <input type="date" class="form-control" data-val="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Address  <sup>*</sup></label>
+                                <input type="text" placeholder="Address" class="form-control" data-val="true">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-col">
+                                <label for="customerFirstName">Pin Code  <sup>*</sup></label>
+                                <input type="text" placeholder="Pin Code" class="form-control" data-val="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="f1-buttons text-left">
+                        <button type="button" class="btn btn-previous btn-light">Previous</button>
+                        <button type="button" class="btn btn-next btn-primary">Next</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="add-account-number-1">
+                        <div class="recharge-cols-lt">
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col">
+                                        <div class="account-beneficery">
+                                            @*<h4 class="recharge-bill-payment--form-head d-none d-lg-inline-block">Account Number</h4>*@
+                                            <div class="add-b d-lg-inline-block mob-hide ng-star-inserted" id="btn-toggle-1">Add Beneficiary <div class="add-icon">+</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Account Number <sup>*</sup></label>
+                                            <input type="text" placeholder="Account Number" class="form-control" data-val="true">
+                                            @* <span _ngcontent-c23="" class="ifsc-link bene ng-star-inserted">View Beneficiary</span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Confirm Account Number <sup>*</sup></label>
+                                            <input type="text" placeholder="Confirm Account Number" class="form-control" data-val="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Account Holder's Name <sup>*</sup></label>
+                                            <input type="text" placeholder="Account Holder's Name" class="form-control" data-val="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Select Bank   <sup>*</sup></label>
+                                        <select class="form-control" name="bankname">
+                                            <option>Select Bank</option>
+                                            <option value="ABHYUDAYA CO-OP BANK LTD">ABHYUDAYA CO-OP BANK LTD</option>
+                                            <option value="ADARSH CO-OPERATIVE BANK">ADARSH CO-OPERATIVE BANK</option>
+                                            <option value="ADARSH COOPERATIVE BANK">ADARSH COOPERATIVE BANK</option>
+                                            <option value="AHMEDABAD DISTRICT COOPERATIVE BANK">AHMEDABAD DISTRICT COOPERATIVE BANK</option>
+                                            <option value="AIRCEL SMART MONEY LTD">AIRCEL SMART MONEY LTD</option>
+                                            <option value="AIRTEL PAYMENTS BANK LIMITED">AIRTEL PAYMENTS BANK LIMITED</option>
+                                            <option value="YES BANK LTD">YES BANK LTD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Amount (₹)   <sup>*</sup></label>
+                                        <input type="text" placeholder="Amount (₹)" class="form-control" data-val="true">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Beneficiary Mobile number  <sup>*</sup></label>
+                                        <input type="text" placeholder="Beneficiary Mobile number" class="form-control" data-val="true">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="recharge-cols-rt">
+                            <div class="last-recharge ng-star-inserted">
+                                <h5 class="head--h5 head--h5-mobile ng-star-inserted"> Last Transaction </h5>
+                                <div class="item-text--info ng-star-inserted">
+                                    <h5> No transaction to show. Recharge, Pay Bills or Send Money to avail exciting offers.</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="add-beneficiary add-account-number-2 add-here">
+                        <div class="recharge-cols-lt">
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col">
+                                        <div class="account-beneficery">
+                                            <div class="add-b d-lg-inline-block mob-hide ng-star-inserted" id="btn-toggle-1"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></div>
+                                            @*<h4 class="recharge-bill-payment--form-head d-none d-lg-inline-block">Add Beneficiary</h4>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Beneficiary Account Number <sup>*</sup></label>
+                                            <input type="text" placeholder="Beneficiary Account Number" class="form-control" data-val="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Confirm Beneficiary Account Number <sup>*</sup></label>
+                                            <input type="text" placeholder="Confirm Beneficiary Account Number" class="form-control" data-val="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <div class="mat-form-field-infix account-beneficery">
+                                            <label for="customerFirstName">Beneficiary Name <sup>*</sup></label>
+                                            <input type="text" placeholder="Beneficiary Name" class="form-control" data-val="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Select Bank   <sup>*</sup></label>
+                                        <select class="form-control" name="bankname">
+                                            <option>Select Bank</option>
+                                            <option value="ABHYUDAYA CO-OP BANK LTD">ABHYUDAYA CO-OP BANK LTD</option>
+                                            <option value="ADARSH CO-OPERATIVE BANK">ADARSH CO-OPERATIVE BANK</option>
+                                            <option value="ADARSH COOPERATIVE BANK">ADARSH COOPERATIVE BANK</option>
+                                            <option value="AHMEDABAD DISTRICT COOPERATIVE BANK">AHMEDABAD DISTRICT COOPERATIVE BANK</option>
+                                            <option value="AIRCEL SMART MONEY LTD">AIRCEL SMART MONEY LTD</option>
+                                            <option value="AIRTEL PAYMENTS BANK LIMITED">AIRTEL PAYMENTS BANK LIMITED</option>
+                                            <option value="YES BANK LTD">YES BANK LTD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-12 col-sm-12 col-lg-12">
+                                    <div class="form-col margin-class">
+                                        <label for="customerFirstName">Beneficiary Mobile Number <sup>*</sup></label>
+                                        <input type="text" placeholder="Beneficiary Mobile Number" class="form-control" data-val="true">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="recharge-cols-rt">
+                            <div class="last-recharge ng-star-inserted">
+                                <h4 class="head--h5 head--h5-mobile ng-star-inserted"> Beneficiary</h4>
+                                <ul>
+                                    <li>
+                                        <div class="row ng-star-inserted">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    @*<div class="col-md-2 border-right p-0 text-center bnk-ico-cntnr pt-10">
+                                                <img class="bank-icon ng-lazyloaded" src="https://www.airtel.in/bank/assets/images/easy-payments/airtel.png">
+                                            </div>*@
+                                                    <div class="col-md-12">
+                                                        <p>Name: Manoj Saini</p>
+                                                        <p>Ac No: 54638100008092</p>
+                                                        <p>BANK OF BARODA | BARB0000000</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="wrap-btn ">
+                                                    <div class="f1-buttons">
+                                                        <button type="button" class="btn btn-next btn-primary">Send Now</button>
+                                                    </div>
+                                                    <div>
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="f1-buttons text-left">
+
+                        <button type="button" class="btn btn-previous btn-light">Previous</button>
+                        <button type="button" class="btn btn-next btn-primary">Next</button>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="row form-group">
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Beneficiary Name</label>
+                                <p>ManojSaini</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Account Number</label>
+                                <p>54638100008092</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">Bank Name</label>
+                                <p>BANK OF BARODA</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col">
+                                <label for="customerFirstName">IFSC Code   <sup>*</sup></label>
+                                <p>BARB0chomux</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-col">
+                                <label for="pinCode">Select Transfer Type</label>
+                                <div class="radio-col">
+                                    <label class="radio-row m-0 fw-500">
+                                        IMPS
+                                        <input type="radio" name="IMPS" value="IMPS" checked="">
+                                        <span class="checkmark-radio"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-col">
+                                    <label class="radio-row m-0 fw-500">
+                                        NEFT
+                                        <input type="radio" name="NEFT" value="NEFT">
+                                        <span class="checkmark-radio"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-col pre-text">
+                                <label for="pinCode">
+                                    Enter Amount You Wish To Transfer <sup>*</sup>
+                                </label>
+                                <input type="text" id="amount" name="amount" class="gc-w pl-10" maxlength="6" minlength="2" required="">
+                                <i class="icon-rupee fs-10"></i>
+                                <button type="submit" disabled="" class="btn btn-disable btn-gc">Get Charges</button>
+                            </div>
+                            <span class="error-text"></span>
+                        </div>
+                    </div>
+                    <div class="f1-buttons text-left">
+                        <button type="button" class="btn btn-previous btn-light">Previous</button>
+                        <button type="button" class="btn btn-next btn-primary">Next</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".add-account-number-1 #btn-toggle-1").click(function () {
+            $(".add-account-number-1").addClass("add-here");
+            $(".add-account-number-2").removeClass("add-here");
+        });
+    });
+    $(document).ready(function () {
+        $(".add-account-number-2 #btn-toggle-1").click(function () {
+            $(".add-account-number-2").addClass("add-here");
+            $(".add-account-number-1").removeClass("add-here");
+        });
+    });
+</script>

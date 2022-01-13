@@ -1,0 +1,122 @@
+﻿@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "dmt Api Logs";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new dmtApiLogs(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+    obj.Remove("Id");
+    
+    //obj.Remove("SponsorId");
+    List<string> termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+
+}
+<style>
+    .modal-backdrop.fade.show {
+        display: none !important;
+    }
+
+    .modal-dialog {
+        height: auto !important;
+    }
+</style>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10 col-6 form-group">
+                            <a href="#" data-target="#AddFilter" class="" data-toggle="modal" aria-expanded="true" style="" data-placement="auto" data-original-title="Conditional Filters">
+                                <i class="fa fa-filter"></i>&nbsp;Filter
+                            </a>
+                        </div>
+                      
+                        <div class="col-md-2 col-6 text-right form-group">
+                            <div id="reportrange" style="background: #fff; text-align:center; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;<span></span><i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal bnr-modal fade Filter-modal" id="AddFilter" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modeltitleAddFilter">Search Filter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="dvfilterBody-col" data-table="dvfilterBody" style="max-height:400px;overflow: auto;">
+                    <div class="form-group col-xs-12 ">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label class="control-label">Select Api</label>
+                                <select id="ApiId" name="Status-Search" class="form-control">
+                                </select>
+                            </div>
+                            <div class="col-md-4" style="text-align:right;">
+                                <br />
+                                <button id="btnSearch" type="button" class="btn btn-flat btn-success" title="Search Record">
+                                    <i class="fa fa-search" aria-hidden="true"></i> Search
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>                   
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/CustomJS/v2-dmt.js"></script>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            menu.BindBreadCrumb(0);
+            var id = 0, area = `admin`;
+            $.when(dmtv2.GetAPI(area, "ApiId")).then(function () {                
+                table.BindPostTable("/Admin/Services/loaddmtApiLogs", 'myTable');
+            });
+            var data = {};
+            data["option1"] =0;
+            common.Filter("Admin", "Services", "loaddmtApiLogs", data, "myTable");
+
+            $("#btnSearch").click(function () {
+                data["option1"] = $("#ApiId option:selected").val();               
+                common.Filter("Admin", "Services", "loaddmtApiLogs", data, "myTable", 1);
+                $(".close").click();
+            });
+        });
+    </script>
+}

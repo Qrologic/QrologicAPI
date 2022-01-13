@@ -1,0 +1,49 @@
+﻿@model QroApi.MODEL.AddDeductFundModel
+
+
+<form asp-action="AddDeductBalance" asp-controller="Wallet" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ToMsrNo" />
+    <input type="hidden" asp-for="Factor" />
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="MemberId" class="form-control" placeholder="Search Member" />
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Balance" class="control-label"></label>
+                <input class="form-control" type="text" asp-for="Balance" disabled>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Narration" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="Narration" class="form-control" placeholder="Remark" />
+                <span asp-validation-for="Narration" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+

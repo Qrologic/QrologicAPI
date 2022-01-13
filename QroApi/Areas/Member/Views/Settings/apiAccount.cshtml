@@ -1,0 +1,49 @@
+﻿@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "Account";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .modal-backdrop.fade.show {
+        display: none !important;
+    }
+
+    .modal-dialog {
+        height: auto !important;
+    }
+</style>
+
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-card ">
+                                <div class="card-header-tab card-header" style="border-radius: 6px 6px 0px 0px; ">
+
+                                    <a class="nav-link mr-2 mb-2" data-toggle="tab" href="Javascript:void(0)">Account</a>
+                                    <a class="nav-link mr-2 mb-2" data-toggle="tab" href="Javascript:void(0)">Whitelist IP </a>
+                                    <a class="nav-link mr-2 mb-2" data-toggle="tab" href="Javascript:void(0)">Webhook</a>
+                                    @*<button class="mr-2 mb-2 btn-icon @item.ClassName" data-toggle="collapse" data-target="#popup_service" onclick="svc.ServicePopup('@item.ServiceId', '@item.ServiceName')"><i class="@item.ServiceIcon btn-icon-wrapper"></i>@item.ServiceName</button>*@
+                                    
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

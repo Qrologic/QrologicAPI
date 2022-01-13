@@ -1,0 +1,198 @@
+﻿@model QroApi.MODEL.CompanyModel
+@{
+    ViewData["Title"] = "Company";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .modal-backdrop.show {
+        display: none !important;
+    }
+
+    .modal-dialog {
+        height: auto !important;
+    }
+</style>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-8 company-table">
+            <div class="box">
+                <div class="box-body">
+                    <div class="pull-right">
+                        <span class="pull-right text-primary edit-link" data-config-id="accountDetailsDisplayInfo">
+                            <a class="btn btn-default btn-xs" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="setting.CompanyPopup('Admin');"><i class="fa fa-pencil"></i></a>
+                        </span>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <table class="table table-details">
+                                <tbody>
+
+                                    <tr>
+                                        <td class="ft-600">Website Url</td>
+                                        <td><span class="help-text">@Model.WebsiteUrl</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-600">Company Name</td>
+                                        <td><span class="help-text">@Model.CompanyName</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-600">Company Owner</td>
+                                        <td><span class="help-text">@Model.CompanyOwner</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="ft-600">
+                                            CIN
+                                        </td>
+                                        <td><span class="help-text">@Model.CIN</span></td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td class="ft-600">PAN</td>
+                                        <td><span class="help-text">@Model.PanNo</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="ft-600">TAN</td>
+                                        <td><span class="help-text">@Model.TanNo</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="ft-600">GST No</td>
+                                        <td><span class="help-text">@Model.GstNo</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="ft-600">Address</td>
+                                        <td><span class="help-text">@Model.Address</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-600">Company Email</td>
+                                        <td><span class="help-text">@Model.Email</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ft-600">Company Mobile</td>
+                                        <td><span class="help-text">@Model.Mobile</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="ft-600">Copyright</td>
+                                        <td><span class="help-text">@Model.Copyright</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 logo-change-1">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <i class="fa fa-bullhorn"></i>
+                    <h3 class="box-title">Logo</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+                            <img class="img-responsive margin-auto" src="../../images/uploadimages/@Model.CompanyLogo" alt="Full logo for printing">
+                            <div class="margin-bottom-10">
+                                @*<a data-confirm="Are you sure to <strong>remove</strong> logo?" rel="nofollow" data-method="delete" href="/company/remove-logo">Remove Logo</a>*@
+                            </div>
+                            <button type="button" class="btn btn-warning btn-flat" data-toggle="modal" data-target="#upload-business-logo-modal">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Change Logo
+                            </button>
+                            <div class="modal" id="upload-business-logo-modal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title text-center">Upload Logo</h4>
+                                        </div>
+                                        <form asp-action="UpdateCompanyLogo" asp-controller="Settings" asp-area="Admin" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+                                              data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+                                            <div class="modal-body">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <input type="hidden" asp-for="Id" value="@Model.Id" />
+                                                        <input asp-for="ImageFile" class="form-control" accept="image/png, image/jpeg" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Upload Logo</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <i class="fa fa-bullhorn"></i>
+                    <h3 class="box-title">Favicon</h3>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-md-8 col-md-offset-2 text-center favicon-logo">
+                            <img class="img-responsive margin-auto" src="/@Model.FeviconIcon" alt="Fevicon">
+                            <div class="margin-bottom-10">
+                                @*<a data-confirm="Are you sure to <strong>remove</strong> favicon?" rel="nofollow" data-method="delete" href="/company/remove-favicon">Remove Favicon</a>*@
+                            </div>
+                            <button type="button" class="btn btn-warning btn-flat" data-toggle="modal" data-target="#upload-business-favicon-modal">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Change Favicon
+                            </button>
+                            <div class="modal" id="upload-business-favicon-modal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title text-center">Upload Favicon</h4>
+                                        </div>
+                                        <form asp-action="UpdateCompanyFevicon" asp-controller="Settings" asp-area="Admin" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+                                              data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+                                            <div class="modal-body">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <input type="hidden" asp-for="Id" value="@Model.Id" />
+                                                        <input asp-for="ImageFile" class="form-control" accept="image/png, image/jpeg" required="required">
+                                                        <span class="help-block text-light-blue">Upload 48*48 '.ico' format image</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success">Upload Favicon</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<script src="~/CustomJS/Settings.js"></script>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+        });
+    </script>
+}
+
+

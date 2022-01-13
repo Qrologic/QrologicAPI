@@ -1,0 +1,58 @@
+﻿@model QroApi.MODEL.MemberBankModel
+
+
+<form asp-action="AddMemberBank" asp-controller="Settings" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="BankId" class="control-label"></label><span class="text-danger">*</span>
+                <select asp-for="BankId" type="select" class="form-control">
+                </select>
+                <span asp-validation-for="BankId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Branch" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="Branch" class="form-control" />
+                <span asp-validation-for="Branch" class="text-danger"></span>
+                <input type="hidden" id="hdnBankId" asp-for="BankId" />
+                <input type="hidden" id="hdnId" asp-for="Id" />
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="AccountNumber" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="IFSC" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="IFSC" class="form-control" />
+                <span asp-validation-for="IFSC" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="AccountHolder" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="AccountHolder" class="form-control" />
+                <span asp-validation-for="AccountHolder" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label">&nbsp;</label>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+</form>

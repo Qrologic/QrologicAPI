@@ -1,0 +1,77 @@
+﻿@model QroApi.MODEL.OperatorList
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "List Operator";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new OperatorList(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+
+    List<string>
+    termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+
+    ViewData["Title"] = "List Operator";
+}
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 text-right form-group">
+                            <a class="" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="rc.OperatorPopup(0);">
+                                <i class="fa fa-plus-circle"></i>&nbsp;Add New Operator
+                            </a>
+                            @*<div class="navbar-custom-menu pull-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown messages-menu">
+                            <a href="#" data-table="togglefilter" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" data-placement="auto" data-original-title="Conditional Filters">
+                                <i class="fa fa-filter"></i>&nbsp;Add Filter
+                            </a>
+                        </li>
+                    </ul>
+                </div>*@
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed ">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+            table.BindTable(`/Admin/Recharge/LoadOperatorList`, `myTable`);
+        });
+    </script>
+}
+

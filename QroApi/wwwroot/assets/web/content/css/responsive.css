@@ -1,0 +1,203 @@
+@media (min-width:1000px) and (max-width:1199px) {
+    .navigation-bar .nav-navbar .navbar-nav-menu li {
+        padding: 15px 10px;
+    }
+
+        .navigation-bar .nav-navbar .navbar-nav-menu li:last-child {
+            padding-right: 0;
+        }
+
+    #slider-section {
+        background-position: center;
+    }
+
+        #slider-section .slider-content big {
+            font-size: 80px;
+        }
+
+        #slider-section .slider-content h1 {
+            font-size: 85px;
+        }
+
+    .link-button-slider {
+        padding: 30px 0 50px;
+    }
+
+    .about-section h2, #why-us-section .title-h3, #agent_type h4, .join-detail h5, .join-detail span, .register-section-left h5, .service-Detail-section h6 {
+        font-size: 50px;
+    }
+
+    .counter-item {
+        margin-bottom: 35px;
+    }
+
+        .counter-item i {
+            font-size: 36px;
+            width: 41px;
+        }
+
+    .timer {
+        font-size: 30px;
+    }
+
+    .timer1 {
+        font-size: 30px;
+        position: relative;
+        top: -11px;
+    }
+
+    .about_count .counter-item p {
+        font-size: 20px;
+        margin-left: -18px;
+    }
+
+    .career-section-left {
+        margin-top: -120px;
+    }
+
+        .career-section-left img {
+            left: -38px;
+            width: 109%;
+        }
+
+    .career-section-right {
+        padding-top: 16px;
+    }
+
+    .career-content {
+        display: inline-block;
+    }
+
+    #agent_type {
+        margin-top: -100px;
+        margin-bottom: -116px;
+    }
+
+    #register_account {
+        padding: 66px 0px 200px 0px;
+    }
+
+        #register_account .register-section-left {
+            position: relative;
+            top: 95px;
+        }
+
+    .register-section-right {
+        margin-top: 150px;
+        width: 100%;
+    }
+
+    #service-section {
+        margin-bottom: 0px;
+        padding: 47px 0px 346px 0px;
+        position: relative;
+    }
+
+    .service-Detail-section {
+        position: relative;
+        top: 181px;
+    }
+
+        .service-Detail-section h6 {
+            text-align: left;
+        }
+
+    .service-section-one {
+        width: 77%;
+    }
+
+    .service-section-two {
+        width: 62%;
+        margin: 0 8% 0 24%;
+    }
+
+    .service-section-three {
+        margin-left: 3%;
+    }
+
+    .service-section-four {
+        margin-left: 20%;
+    }
+
+    .detail-wraper h3 {
+        font-size: 23px;
+    }
+}
+
+@media (min-width:768px) and (max-width:999px) {
+    .container {
+        max-width: 750px;
+    }
+
+    #header-section .logo-section img {
+        width: 130px;
+    }
+
+    .navigation-bar .nav-navbar .navbar-nav-menu {
+        padding-top: 15px;
+    }
+
+        .navigation-bar .nav-navbar .navbar-nav-menu li {
+            display: inline-block;
+            padding: 0px 4px;
+        }
+}
+
+@media(max-width:767px) {
+    #slider-section .slider-content big {
+        font-size: 40px;
+    }
+
+    #slider-section .slider-content h1 {
+        font-size: 50px;
+    }
+
+    .about-section h2 {
+        font-size: 40px;
+    }
+
+    .about_count .counter-item p {
+        font-size: 20px;
+        padding-left: 25px;
+        top: 15px;
+        width: 50%;
+    }
+
+    #why-us-section {
+        padding: 0px 0px 200px 0px;
+    }
+
+    #register_account {
+        padding: 13px 0px 31px 0px;
+        background: #fb6800;
+        margin-bottom: 50px;
+    }
+
+    .service-section-one {
+        width: 100%;
+    }
+
+    .service-section-two {
+        width: 100%;
+        margin: 0;
+    }
+
+    .service-section-three {
+        width: 100%;
+        margin: 0;
+    }
+
+    .service-section-four {
+        width: 100%;
+        margin: 0;
+    }
+
+    .service-section-five {
+        width: 100%;
+        margin: 0;
+    }
+
+    #testimonials-section .testimonials-item .testimonials-comment {
+        width: 100%;
+    }
+}

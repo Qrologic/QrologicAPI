@@ -1,0 +1,55 @@
+﻿@model QroApi.MODEL.MenuModel
+
+<span class="text-danger" id="spvalidation"></span>
+<form class="">
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="Level" class=""></label><span class="text-danger">*</span>
+            <select asp-for="Level" type="select" onchange="menu.ShowParentMenu(this.value)" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            <input type="hidden" asp-for="MenuId" class="form-control" />
+            <input type="hidden" id="hdnParentId" asp-for="ParentId" name="hdnParent" />
+        </div>
+        <div class="col-sm-6" id="dvParentMenu" style="display:block">
+            <label asp-for="ParentId" class=""></label><span class="text-danger">*</span>
+            <select asp-for="ParentId" type="select" class="form-control">
+                <option value="0">Select Parent Menu </option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="MenuName"></label><span class="text-danger">*</span>
+            <input asp-for="MenuName" type="text" placeholder="Menu Name" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="MenuTitle"></label><span class="text-danger">*</span>
+            <input asp-for="MenuTitle" type="text" placeholder="Title" class="form-control">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6" id="dvParentMenu" style="display:block">
+            <label asp-for="ControllerName" class=""></label><span class="text-danger">*</span>
+            <input asp-for="ControllerName" placeholder="Controller Name" type="text" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="ActionName" class=""></label><span class="text-danger">*</span>
+            <input asp-for="ActionName" placeholder="Action Name" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6" id="dvParentMenu" style="display:block">
+            <label asp-for="Position" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Position" placeholder="Position" type="text" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="MenuIcon" class=""></label><span class="text-danger">*</span>
+            <input asp-for="MenuIcon" placeholder="Menu Icon" type="text" class="form-control">
+        </div>
+    </div>
+    <a class="mt-1 btn btn-primary" onclick="menu.SaveAdminMenu()" href="javascript:void(0);">Submit</a>
+</form>

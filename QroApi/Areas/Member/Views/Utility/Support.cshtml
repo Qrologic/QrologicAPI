@@ -1,0 +1,155 @@
+﻿@model QroApi.MODEL.SupportModel
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "Support";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new SupportResponse(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+    obj.Remove("Id");
+    List<string>
+    termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+}
+
+<style>
+    .modal-backdrop.fade.show {
+        display: none !important;
+    }
+
+    .modal-dialog {
+        height: auto !important;
+    }
+</style>
+<section class="content-header">
+    <h1> <i class="lnr-apartment opacity-6"></i> Support</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Support</a></li>
+        <li class="active"> List Support
+        <li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                   
+                    <div class="row">
+                        <div class="col-md-7 col-6 form-group">
+                            <a id="ancModal" href="#" data-target="#AddFilter" class="" data-toggle="modal" aria-expanded="true" style="" data-placement="auto" data-original-title="Conditional Filters">
+                                <i class="fa fa-filter"></i>&nbsp;Filter
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6  form-group">
+                            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;<span></span><i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-6  text-right form-group">
+                            <a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="utility.SupportPopup(0, 'Member');">
+                                <i class="fa fa-plus-circle"></i>&nbsp;Create Ticket
+                            </a>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal bnr-modal fade Filter-modal" id="AddFilter" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modeltitleAddFilter">Search Filter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="dvfilterBody-col" data-table="dvfilterBody" style="max-height:400px;overflow: auto;">
+                    <div class="form-group col-xs-12 ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Status</label>
+                                <select id="Status-Search" name="Status-Search" class="form-control">
+                                    <option value="0">Open</option>
+                                    <option value="1">Close</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label">MemberId</label>
+                                <input id="MemberId-Search" name="MemberId-Search" type="text" placeholder="MemberId" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label">Name</label>
+                                <input id="Name-Search" name="Name-Search" type="text" placeholder="Name" class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label">Mobile</label>
+                                <input id="Mobile-Search" name="Mobile-Search" type="text" placeholder="Mobile" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align:right;">
+                                <button id="btnSearch" type="button" class="btn btn-flat btn-success" title="Search Record">
+                                    <i class="fa fa-search" aria-hidden="true"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/CustomJS/Utility.js"></script>
+<script src="~/CustomJS/Member.js"></script>
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            var data = {};
+            common.Filter("Member", "Utility", "GetSupportList", data, "myTable");
+
+            $("#btnSearch").click(function () {
+                data["option3"] = $("#MemberId-Search").val();
+                data["option4"] = $("#Name-Search").val();
+                data["option5"] = $("#Mobile-Search").val();
+                data["status"] = $("#Status-Search").val();
+                common.Filter("Member", "Utility", "GetSupportList", data, "myTable", 1);
+                $(".close").click();
+
+            });
+        });
+    </script>
+}
+
+

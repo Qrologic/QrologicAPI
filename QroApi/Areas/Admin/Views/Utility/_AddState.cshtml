@@ -1,0 +1,51 @@
+﻿@model QroApi.MODEL.StateModel
+
+
+<form asp-action="AddState" asp-controller="Utility" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="CountryId" class="control-label"></label><span class="text-danger">*</span>
+                <select asp-for="CountryId" type="select" class="form-control">
+                </select>
+                <span asp-validation-for="CountryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="StateName" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="StateName" class="form-control" />
+                <span asp-validation-for="StateName" class="text-danger"></span>
+                <input type="hidden" id="hdnCountryId" asp-for="CountryId" />
+                <input type="hidden" id="hdnStateId" asp-for="StateId" />
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="StateCode" class="control-label"></label><span class="text-danger">*</span>
+                <input asp-for="StateCode" class="form-control" />
+                <span asp-validation-for="StateCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label asp-for="Tin" class="control-label"></label>
+                <input asp-for="Tin" class="form-control" />
+                <span asp-validation-for="Tin" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+

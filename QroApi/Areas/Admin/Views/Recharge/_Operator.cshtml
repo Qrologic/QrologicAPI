@@ -1,0 +1,50 @@
+﻿
+
+@model QroApi.MODEL.Operator
+
+    
+        <span class="text-danger" id="spvalidation"></span>
+        <form asp-action="AddOperator" asp-controller="Recharge" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+              data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <div class="position-relative form-group">
+                        <label asp-for="ServiceId" class=""></label><span class="text-danger">*</span>
+                        <select asp-for="ServiceId" type="select" class="form-control select2">
+                        </select>
+                        <span asp-validation-for="ServiceId" class="text-danger"></span>
+                        <input type="hidden" asp-for="OperatorId" class="form-control" />
+                        <input type="hidden" id="hdnServiceId" asp-for="ServiceId" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="position-relative form-group">
+                        <label asp-for="OperatorName"></label><span class="text-danger">*</span>
+                        <input asp-for="OperatorName" type="text" placeholder="Operator Name" class="form-control">
+                        <span asp-validation-for="OperatorName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <div class="position-relative form-group">
+                        <label asp-for="OperatorCode" class=""></label><span class="text-danger">*</span>
+                        <input asp-for="OperatorCode" placeholder="Operator Code" type="text" class="form-control">
+                        <span asp-validation-for="OperatorCode" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="position-relative form-group">
+                        <label asp-for="ImageFile" class="control-label"></label>
+                        <input asp-for="ImageFile" accept="image/*" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-6">
+                    <button type="submit" class="t-1 btn btn-primary">Save</button>
+                </div>
+            </div>
+
+        </form>
+    

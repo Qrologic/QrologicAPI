@@ -1,0 +1,28 @@
+﻿@model QroApi.MODEL.MemberServiceModel
+@if (Model.list != null)
+{
+    if (Model.list.Count > 0)
+    {
+
+        <div class="col-md-12">
+            <div class="main-card ">
+                <div class="card-header-tab card-header myservice" style="border-radius: 6px 6px 0px 0px; ">
+                    @foreach (var item in Model.list)
+                    {
+                        if (item.ServiceCode == "RC")
+                        {
+                            <a class="nav-link mr-2 mb-2 btn-icon btn btn-outline-light" id="service-@item.ServiceId" data-toggle="tab" href="#home" onclick="svc.ServicePopup('@item.ServiceId', '@item.ServiceName')"><i class="@item.ServiceIcon btn-icon-wrapper"></i>@item.ServiceName</a>
+                            @*<button class="mr-2 mb-2 btn-icon @item.ClassName" data-toggle="collapse" data-target="#popup_service" onclick="svc.ServicePopup('@item.ServiceId', '@item.ServiceName')"><i class="@item.ServiceIcon btn-icon-wrapper"></i>@item.ServiceName</button>*@
+                        }
+                        else if (item.ServiceCode == "DMT")
+                        {
+                            <a class="mr-2 nav-link  mb-2 btn-icon btn btn-outline-light" id="service-@item.ServiceId" href="/Member/v2/dmt"><i class="@item.ServiceIcon btn-icon-wrapper"></i>@item.ServiceName</a>
+                        }
+                    }
+                </div>
+            </div>
+
+
+        </div>
+    }
+}

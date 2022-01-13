@@ -1,0 +1,25 @@
+﻿@model QroApi.MODEL.RoleResponse
+
+<table class="table table-bordered table-striped" cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+    <tbody>
+        <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">User Type</th>
+            <th scope="col">Status</th>
+            <th scope="col" style="width:120px;">Action</th>
+        </tr>
+       
+        @if (Model.list != null)
+        {
+            foreach (var item in Model.list)
+            {
+                <tr>
+                    <td class="text-left text-muted" style="width: 80px;">@item.SrNo</td>
+                    <td class="text-left">@Html.Raw(@item.Role)</td>
+                    <td class="text-left">@Html.Raw(item.Status)</td>
+                    <td class="text-left">@Html.Raw(item.Action)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

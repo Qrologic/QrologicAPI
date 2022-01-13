@@ -1,0 +1,422 @@
+﻿@model QroApi.MODEL.SupportModel
+@{
+    ViewData["Title"] = "Chat";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .fixed-sidebar .app-main .app-main__outer {
+        position: fixed;
+        width: 100%;
+    }
+
+</style>
+
+<section class="content" style="padding-bottom:0px; padding-top:0px;">
+    <div class="tabs-animation chat-box-scroll">
+        <div class="row">
+            <div class="col-sm-12 col-lg-6">
+                <div class="card-hover-shadow-2x mb-3 card">
+                    <div class="scroll-area-lg" style="height:650px; padding-bottom:0px;">
+                        <div class="scrollbar-container ps ps--active-y">
+                            <div class="p-2">
+                                <ul class="todo-list-wrapper list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-warning"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox12" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">
+                                                        Wash the car
+                                                        <div class="badge badge-danger ml-2">Rejected</div>
+                                                    </div>
+                                                    <div class="widget-subheading"><i>Written by Bob</i></div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-focus"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox1">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Task with dropdown menu</div>
+                                                    <div class="widget-subheading">
+                                                        <div>
+                                                            By Johnny
+                                                            <div class="badge badge-pill badge-info ml-2">NEW</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <div class="d-inline-block dropdown">
+                                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="border-0 btn-transition btn btn-link">
+                                                            <i class="fa fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                                            <button type="button" disabled="" tabindex="-1" class="disabled dropdown-item">Action</button>
+                                                            <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
+                                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                                            <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-primary"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox4" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox4">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">Badge on the right task</div>
+                                                    <div class="widget-subheading">This task has show on hover actions!</div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="widget-content-right ml-3">
+                                                    <div class="badge badge-pill badge-success">Latest Task</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-info"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox2" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox2">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img width="42" style="width:42px;" class="rounded" src="~/assets/Panel/chat/userchat.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Go grocery shopping</div>
+                                                    <div class="widget-subheading">A short description for this todo item</div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-success"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox3" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox3">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">Development Task</div>
+                                                    <div class="widget-subheading">Finish React ToDo List App</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <div class="badge badge-warning mr-2">69</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-warning"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox12" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">
+                                                        Wash the car
+                                                        <div class="badge badge-danger ml-2">Rejected</div>
+                                                    </div>
+                                                    <div class="widget-subheading"><i>Written by Bob</i></div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-focus"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox1">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Task with dropdown menu</div>
+                                                    <div class="widget-subheading">
+                                                        <div>
+                                                            By Johnny
+                                                            <div class="badge badge-pill badge-info ml-2">NEW</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <div class="d-inline-block dropdown">
+                                                        <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="border-0 btn-transition btn btn-link">
+                                                            <i class="fa fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                                            <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                                                            <button type="button" disabled="" tabindex="-1" class="disabled dropdown-item">Action</button>
+                                                            <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
+                                                            <div tabindex="-1" class="dropdown-divider"></div>
+                                                            <button type="button" tabindex="0" class="dropdown-item">Another Action</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-primary"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox4" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox4">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">Badge on the right task</div>
+                                                    <div class="widget-subheading">This task has show on hover actions!</div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="widget-content-right ml-3">
+                                                    <div class="badge badge-pill badge-success">Latest Task</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-info"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox2" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox2">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img width="42" style="width:42px;" class="rounded" src="~/assets/Panel/chat/userchat.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left">
+                                                    <div class="widget-heading">Go grocery shopping</div>
+                                                    <div class="widget-subheading">A short description for this todo item</div>
+                                                </div>
+                                                <div class="widget-content-right widget-content-actions">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="todo-indicator bg-success"></div>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-2">
+                                                    <div class="custom-checkbox custom-control">
+                                                        <input type="checkbox" id="exampleCustomCheckbox3" class="custom-control-input">
+                                                        <label class="custom-control-label" for="exampleCustomCheckbox3">&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">Development Task</div>
+                                                    <div class="widget-subheading">Finish React ToDo List App</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <div class="badge badge-warning mr-2">69</div>
+                                                </div>
+                                                <div class="widget-content-right">
+                                                    <button class="border-0 btn-transition btn btn-outline-success">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                    <button class="border-0 btn-transition btn btn-outline-danger">
+                                                        <i class="fa fa-trash-alt"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 400px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 230px;"></div></div>
+                        </div>
+                    </div>
+                    <div class="d-block text-right card-footer">
+                        <button class="mr-2 btn btn-link btn-sm">Cancel</button>
+                        <button class="btn btn-primary">Add Task</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="card-hover-shadow-2x mb-3 card">
+                    <div class="row align-items-center gx-5">
+                        <div class="col overflow-hidden">
+                            <h5 class="text-truncate p-2" style="background: #ebfff9; text-transform: capitalize; ">@Model.Subject <span style="float:right;font-size:13px;">@Model.Date</span></h5>
+                        </div>
+                    </div>
+
+                    <div class="scroll-area-lg">
+                        <div class="scrollbar-container ps ps--active-y">
+                            <div class="p-2">
+                                <div id="divChat-Message" class="chat-wrapper p-1" style="text-align:center;">
+
+
+
+                                </div>
+                            </div>
+                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps__rail-y" style="top: 0px; height: 400px; right: 0px;">
+                                <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 305px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer main is-visible">
+                        <div class="d-flex flex-column h-100 position-relative">
+                            <div class="chat-footer pb-3 pb-lg-7 position-absolute bottom-0 start-0">
+                                <div class="dz-preview bg-dark" id="dz-preview-row" data-horizontal-scroll="">
+                                    <div class="theme-file-preview position-relative mx-2 dz-processing dz-image-preview dz-error dz-complete">
+                                        <div class="avatar avatar-lg dropzone-image-preview">
+                                            <img id="myImg" src="" class="avatar-img rounded file-title" data-dz-thumbnail="" alt="logo-dark-2.png" title="logo-dark-2.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <form  class="">
+                                    <input type="hidden" asp-for="MsrNo" class="form-control"/>
+                                    <input type="hidden" asp-for="Id" class="form-control"/>
+                                    <div class="row align-items-center  rounded-pill">
+                                        <div class="col" id="divSubject" style="display:none;">
+                                            <div class="input-group">
+                                                <input asp-for="Subject" type="text" placeholder="Subject" class="form-control" style="background:#fffcfc;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center gx-0   chat-form rounded-pill bg-dark">
+                                        <div class="col-auto">
+                                            <a href="#" class="btn btn-icon btn-link text-body rounded-circle dz-clickable">
+                                                <input asp-for="ImageFile" accept="image/*" class="form-control"/>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <textarea asp-for="Message" class="form-control px-0" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" style=" overflow-wrap: break-word; resize: none; height: 47px;"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a class="btn btn-icon btn-primary rounded-circle ms-5" onclick="utility.SaveMessage(`Member`)">
+                                              <i class="fa fa-send"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/CustomJS/Utility.js"></script>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            utility.ChatMessageBind(`Member`);
+
+            $("#ImageFile").change(function () {
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                    $('#dz-preview-row').show();
+                }
+            });
+        });
+
+        function imageIsLoaded(e) {
+            $('#myImg').attr('src', e.target.result);
+        };
+    </script>
+}

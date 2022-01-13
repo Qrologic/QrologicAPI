@@ -1,0 +1,11 @@
+﻿@model QroApi.MODEL.OperatorWiseApi
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+        <tr>
+            <td><input type="checkbox" value="@item.OperatorId" /></td>
+            <td>@item.OperatorName</td>
+        </tr>
+    }
+}

@@ -1,0 +1,105 @@
+﻿/*left right modal*/
+.modal.left_modal, .modal.right_modal {
+    position: fixed;
+    z-index: 99999;
+}
+
+    .modal.left_modal .modal-dialog,
+    .modal.right_modal .modal-dialog {
+        position: fixed;
+        margin: auto;
+        width: auto;
+        min-width: 32%;
+        height: 100%;
+        -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+        transform: translate3d(0%, 0, 0);
+    }
+
+.modal-dialog {
+    /* max-width: 100%; */
+    margin: 1.75rem auto;
+}
+
+@media (min-width: 576px) {
+    .left_modal .modal-dialog {
+        max-width: 100%;
+    }
+
+    .right_modal .modal-dialog {
+        max-width: 100%;
+    }
+}
+
+.modal.left_modal .modal-content,
+.modal.right_modal .modal-content {
+    /*overflow-y: auto;
+    overflow-x: hidden;*/
+    height: 100vh !important;
+}
+
+.modal.left_modal .modal-body,
+.modal.right_modal .modal-body {
+    padding: 15px 15px 30px;
+}
+
+/*.modal.left_modal  {
+    pointer-events: none;
+    background: transparent;
+}*/
+
+.modal-backdrop {
+    display: block;
+}
+
+/*Left*/
+.modal.left_modal.fade .modal-dialog {
+    left: -50%;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left_modal.fade.show .modal-dialog {
+    left: 0;
+    box-shadow: 0px 0px 19px rgba(0,0,0,.5);
+}
+
+/*Right*/
+.modal.right_modal.fade .modal-dialog {
+    right: -50%;
+    -webkit-transition: opacity 0.3s linear, right 0.5s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.5s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.5s ease-out;
+    transition: opacity 0.3s linear, right 0.5s ease-out;
+}
+
+
+
+.modal.right_modal.fade.show .modal-dialog {
+    right: 0;
+    box-shadow: 0px 0px 19px rgba(0,0,0,.5);
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+
+
+.modal-header.left_modal, .modal-header.right_modal {
+    padding: 10px 15px;
+    border-bottom-color: #EEEEEE;
+    background-color: #FAFAFA;
+}
+
+.modal_outer .modal-body {
+    /*height:90%;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 91vh;
+}

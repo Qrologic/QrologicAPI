@@ -1,0 +1,368 @@
+﻿@model QroApi.MODEL.TxnDetailModel
+
+<div class="dwc-drawer-comp  dwc-drawer-open">
+    <div>
+        <div role="presentation" class="_1puyaRoBBIL33rEFv5XzXm">
+            @if (Model.ServiceCode != "")
+            {
+                <div class="_2B68pYsj4QR7mSq56WfMJB">
+                    <div class="_2yT8Hw_wOdh_JnOc-wzWPd">
+                        <span class="nbp-ics-wrapper" onclick="createPDF()">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="black">
+                                <defs>
+                                    <path id="ic-file-download_svg__a" d="M0 0h24v24H0z"></path>
+                                    <path id="ic-file-download_svg__b" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd">
+                                    <mask id="ic-file-download_svg__c" fill="#fff">
+                                        <use xlink:href="#ic-file-download_svg__b"></use>
+                                    </mask>
+                                    <use fill="#29394F" fill-rule="nonzero" xlink:href="#ic-file-download_svg__b"></use>
+                                    <g fill="#536E92" mask="url(#ic-file-download_svg__c)"><path d="M0 0h24v24H0z"></path></g>
+                                </g>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="_2yT8Hw_wOdh_JnOc-wzWPd AWP8ooQ52tTcDsh6E-kxA">
+                        <span class="nbp-ics-wrapper">
+                            <a href="#" value='Print' onclick='printDiv();'>
+                                <i class="fa fa-print" aria-hidden="true" style="font-size: 20px;color: #0853a2;"></i>
+                            </a>
+                            @*<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.85L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.35C15.11 18.56 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z" fill="black"></path>
+                                </svg>*@
+                        </span>
+                    </div>
+                </div>
+            }
+        </div>
+        <div>
+            <div class="_7obC8rZiyT7KG-USjJsl-">
+                <p class="dwc-text--comp undefined text-size--5 text-color--black text-weight--bold false" title="">Transaction @Model.Status</p>
+                <div class="_1yjMapd28xTCYvN7NfE001">
+                    <div class="nbp-amount-container undefined">
+                        <p class="dwc-text--comp nbp-amount-container-text text-size--12 text-color--black text-weight--bold false" title="">
+                            <span>₹</span>
+                            <span>@Model.Amount</span>&nbsp;
+                        </p>
+                    </div>
+                    <span class="rAiYgRqjOQag22pHH2Bxm">
+                        <span class="nbp-ics-wrapper">
+                            @{ var iconClass = Model.Status.ToLower() == "success" ? "fa-check-circle text-success" : Model.Status.ToLower() == "pending" ? "fa-clock-o text-warning" : "fa-times-circle text-danger";}
+                            <i class="fa @iconClass fa-2x" aria-hidden="true"></i>
+
+                        </span>
+                    </span>
+                </div>
+                <div class="_3Mf9BDmSLmPox2VRw9wmFA">
+                    <p class="dwc-text--comp undefined text-size--4 text-color--grey text-weight--regular false" title="">Type: @Model.Factor</p>
+                    <p class="dwc-text--comp undefined text-size--4 text-color--grey text-weight--regular false" title="">Created on: @Model.TxnDate.ToString("dd MMM yyyy,hh:mm tt")</p>
+                    <p class="dwc-text--comp undefined text-size--4 text-color--grey text-weight--regular false" title=""> @Model.Remark</p>
+                </div>
+                <div style="border-bottom: #e6ebf3 solid 1px; margin-top: 10px; display:none;">
+                    <p style="text-align: left; font-size: 11px; margin-bottom: 10px; color: #000;"><strong><span style="color:#000;">Note</span> : This receipt is computer generated and only valid as @Model.company.CompanyName Counters.</strong></p>
+                </div>
+            </div>
+            @if (Model.ServiceCode == "RC")
+            {
+                <h4 class="AKCFhhqAbpFrWJY21rEw">DETAILS</h4>
+                <ul class="_3iY2OO3PZXX--OJETVbHaJ">
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Order ID</label>
+                        <span>@Model.TxnId</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Operator</label>
+                        <span>@Model.OperatorName</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Number</label>
+                        <span>@Model.Number</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Status</label>
+                        <span>@Model.Status</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Amount</label>
+                        <span>@Model.Amount</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Operator Reference No.</label>
+                        <span>@Model.RefNo</span>
+                    </li>
+                </ul>
+            }
+            else if (Model.ServiceCode == "DMT")
+            {
+                <h4 class="AKCFhhqAbpFrWJY21rEw">ORDER DETAILS</h4>
+                <ul class="_3iY2OO3PZXX--OJETVbHaJ">
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Order ID</label>
+                        <span>@Model.OrderId</span>
+                    </li>
+                   
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Transaction ID</label>
+                        <span>@Model.TxnId</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Sender Mobile</label>
+                        <span>@Model.SenderMobile</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Sender</label>
+                        <span>@Model.Sender</span>
+                    </li>
+                    @*<li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Remittance Type</label>
+                        <span>Domestic Remittance</span>
+                    </li>*@
+                </ul>
+                <h4 class="AKCFhhqAbpFrWJY21rEw">BENEFICIARY DETAILS</h4>
+                <ul class="_3iY2OO3PZXX--OJETVbHaJ">
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Transaction Type</label>
+                        `<span>@Model.PaymentMode</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Beneficiary Account No.</label>
+                        <span>@Model.Number</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>IFSC</label>
+                        <span>@Model.Ifsc</span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Beneficiary Name</label>
+                        <span>@Model.Reciever</span>
+                    </li>
+                </ul>
+                <h4 class="AKCFhhqAbpFrWJY21rEw">AMOUNT DETAILS</h4>
+                <ul class="_3iY2OO3PZXX--OJETVbHaJ shROgVHDrSDV3molWjDzo">
+                    <li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label class="_1y2hDjaHvp6xhHt6k3BZfu">Transaction Amount</label>
+                        <span>
+                            <div class="nbp-amount-container undefined">
+                                <p class="dwc-text--comp nbp-amount-container-text text-size--4 text-color--grey text-weight--regular false" title="">
+                                    <span>₹</span>
+                                    <span>@Model.Amount</span>
+                                    @*<span class="nbp-amount-container-text-light">.50</span>*@
+                                </p>
+                            </div>
+                        </span>
+                    </li>
+                    @*<li class="_2O6-FjQeIUt4rxIcWh58S-">
+                        <label>Commission Amount</label>
+                        <span>
+                            <div class="nbp-amount-container undefined">
+                                <p class="dwc-text--comp nbp-amount-container-text text-size--4 text-color--grey text-weight--regular false" title="">
+                                    <span>₹</span>
+                                    <span>2</span>
+                                    <span class="nbp-amount-container-text-light">.25</span>
+                                </p>
+                            </div>
+                        </span>
+                    </li>*@
+                    <li class="_2O6-FjQeIUt4rxIcWh58S- _1UIXL6UfIpqbHP7I-zFxrc">
+                        <label>Service Tax</label>
+                        <span>
+                            <div class="nbp-amount-container undefined">
+                                <p class="dwc-text--comp nbp-amount-container-text text-size--4 text-color--grey text-weight--regular false" title="">
+                                    <span>₹</span>
+                                    <span>@Model.Surcharge</span>                                    
+                                </p>
+                            </div>
+                        </span>
+                    </li>
+                    <li class="_2O6-FjQeIUt4rxIcWh58S- _1QyCkRxdQrWw90fVoVtsNC">
+                        <label class="_1y2hDjaHvp6xhHt6k3BZfu">Total Amount</label>
+                        <span>
+                            <div class="nbp-amount-container undefined">
+                                <p class="dwc-text--comp nbp-amount-container-text text-size--4 text-color--grey text-weight--regular false" title="">
+                                    <span>₹</span>
+                                    <span>@{var total = Convert.ToDecimal(Model.Amount) + Convert.ToDecimal(Model.Surcharge);}@total</span>
+                                    @*<span class="nbp-amount-container-text-light">.16</span>*@
+                                </p>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            }
+
+        </div>
+        <ul class="_3iY2OO3PZXX--OJETVbHaJ "></ul>
+    </div>
+    <div style="display:none;">
+        <div id="element-to-print">
+            <div class="invoice-box" style="max-width: 800px; margin: auto; /* padding: 30px;*/ font-size: 16px; line-height: 28.4px; font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; color: #000;">
+
+
+                <table cellpadding="0" cellspacing="0" style="border: 2px solid #ddd; border-bottom: 0px; width: 100%; line-height: inherit; text-align: left; /* width: 660px; */ margin: 0 auto;">
+                    <tbody>
+                        <tr class="top">
+                            <td colspan="2" style="padding: 5px; vertical-align: top;">
+                                <table style=" width: 100%; line-height: inherit; text-align: left; /* width: 660px; */ margin: 0 auto;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="title" style="width: 200px; padding: 5px; vertical-align: top; padding-bottom: 0px; font-size: 45px; /* line-height: 45px; */ color: #333; /* border-bottom: 2px solid #000; ">
+                                                <div class="header-text">
+                                                    <h2 style=" font-size: 16px; margin: 0px;">@Model.company.CompanyName</h2>
+                                                </div>
+                                            </td>
+                                            <td class="title" style="width: 130px; padding: 5px; vertical-align: top; padding-bottom: 0px; font-size: 45px; /* line-height: 45px; */ color: #333; /* border-bottom: 2px solid #000;">
+                                                <div class="logo-img">
+                                                    <img src="../../images/uploadimages/@Model.company.CompanyLogo" style="width: 100%; max-width: 120px">
+                                                </div>
+                                                <div class="header-text">
+                                                    <h5 style="font-size: 16px; margin: 0px;">Transaction  Receipt</h5>
+                                                </div>
+                                            </td>
+                                            @* <td style="text-align: left; width: 190px; padding: 5px; vertical-align: top; padding-bottom: 0px; ">GST : <span><b>@{ var gstNo = Convert.ToString(Model.company.GstNo) == "" ? "N/A" : Model.company.GstNo;}@gstNo </b></span> <br> PAN : <span><b>@{ var panNo = Convert.ToString(Model.company.PanNo) == "" ? "N/A" : Model.company.PanNo;}@panNo</b></span> </td>*@
+                                            <td style=" text-align: left; width: 200px; font-size: 14px; vertical-align: top;">Agent Name : <span><b>@Model.AgentName</b></span> <br> Agent Mobile : <span><b>@Model.AgentMobile</b></span> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table cellpadding="0" cellspacing="0" style="width: 100%; line-height: inherit; text-align: left; /*width: 660px;*/ margin: 0 auto; display:none;">
+                    <tbody>
+                        <tr class="top">
+                            <td colspan="2" style="padding: 5px; vertical-align: top;">
+                                <table style="width: 100%; line-height: inherit; text-align: left; margin: 0 auto;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="title" style="padding: 5px; vertical-align: top; padding-bottom: 10px; font-size: 45px; line-height: 45px; color: #333;">
+                                                <div class="logo-img" style="text-align: center;">
+                                                    <img src="" style="width: 100%; max-width: 300px">
+                                                </div>
+                                                <div class="header-text">
+                                                    <h5 style="margin: 0; text-align: center; margin-top: 30px;">Transaction  Receipt</h5>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr class="information">
+                            <td colspan="2" style="padding: 5px; vertical-align: top;">
+                                <table style="width: 100%; line-height: inherit; text-align: left; margin: 0 auto;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="padding: 5px; vertical-align: top; padding-bottom: 10px;">
+                                                <h2 style=" line-height: 30px; font-size: 18px; color: #000; font-weight: 600;"></h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 290px; padding: 5px; vertical-align: top;"> </td>
+                                            <td style=" text-align: right; padding: 5px; vertical-align: top;">GST :  <br>PAN : </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table cellpadding="0" cellspacing="0" style="border: 1px solid #ddd; width: 100%; line-height: inherit; text-align: left; /*width: 660px;*/ margin: 0 auto;">
+                    <tbody>
+                        @if (Model.ServiceCode == "RC")
+                        {
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">@{var b = Model.ServiceId == 7 ? "CA Number" : "Number";}@b</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;" colspan="4"><b>@Model.Number</b></td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Operator</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;" colspan="4"><b>@Model.OperatorName</b></td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Transaction Id</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Date</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Reference No</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Amount</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;">Status</td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 10px;"><b>@Model.TxnId</b></td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 10px;"><b>@Model.TxnDate</b></td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;"><b>@Model.RefNo</b></td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;"><b>@Model.Amount</b></td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 12px;"><b>@Model.Status</b></td>
+                            </tr>
+                        }
+                        else if (Model.ServiceCode == "DMT")
+                        {
+
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Transaction Mode</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;" colspan="4">@Model.PaymentMode</td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Sender Info</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;" colspan="4">@Model.Sender / Mobile : @Model.SenderMobile</td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Beneficiary Account Details</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;" colspan="4">@Model.Reciever / A/C No.: <b>@Model.Number</b></td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Reference No (RRN/UTR)</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Transfer Date</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Transaction ID</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Amount</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">Status</td>
+                            </tr>
+                            <tr class="details">
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">@Model.RefNo</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">@Model.TxnDate</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">@Model.OrderId</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">@Model.Amount</td>
+                                <td style="padding-bottom: 20px; padding: 4px 20px; border: 1px solid #ddd; vertical-align: middle; font-size: 11px;">@Model.Status</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div style=" margin-top:0px;">
+                    <p style="font-size: 12px; margin: 0px; line-height: 15px;"><b>Note:</b> This receipt is computer generated and only valid at @Model.company.CompanyName Counters.</p>
+                    <p style="font-size: 12px; margin: 0px; line-height: 15px;"><b>Office Address:</b> @Model.company.Address </p>
+                    <p style="font-size: 12px; margin: 0px; line-height: 15px;"><b>Website:</b>@Model.company.WebsiteUrl /   <b>Email:</b>@Model.company.Email</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/assets/Panel/js/html2pdf.bundle.js"></script>
+<script>
+    function createPDF() {
+        var element = document.getElementById('element-to-print');
+        html2pdf(element, {
+            margin: 1,
+            padding: 0,
+            filename: 'mytransactionfile.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 2, logging: true },
+            jsPDF: { unit: 'in', format: 'A4', orientation: 'P' },
+            class: createPDF
+        });
+    };
+    function printDiv() {
+
+        var divToPrint = document.getElementById('element-to-print');
+
+        var newWin = window.open('', 'Print-Window');
+
+        newWin.document.open();
+
+        newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+
+        newWin.document.close();
+
+        setTimeout(function () { newWin.close(); }, 10);
+
+    }
+</script>

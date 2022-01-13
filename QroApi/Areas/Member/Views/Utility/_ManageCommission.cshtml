@@ -1,0 +1,29 @@
+﻿@model QroApi.MODEL.RechargeCommission
+@{ var i = 1;}
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+<tr>
+    <td>@i</td>
+    @*<td>
+        @item.ServiceName
+    </td>*@
+    <td>
+        @item.OperatorName
+        <input type="hidden" id="OperatorId_@i" asp-for="@item.OperatorId" />
+        <input type="hidden" id="ActiveApi_@i" asp-for="@item.ActiveApi" />
+    </td>
+    <td>
+        @item.MyCommission
+    </td>
+    <td>
+        <input type="text" id="Commission_@i" asp-for="@item.Commission" style="width:85px;" />
+    </td>
+    <td>
+        <input type="checkbox" disabled id="IsFlat_@i" asp-for="@item.IsFlat" />
+    </td>
+</tr>
+        i = i + 1;
+    }
+}

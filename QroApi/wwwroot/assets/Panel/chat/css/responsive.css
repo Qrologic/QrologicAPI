@@ -1,0 +1,99 @@
+
+@media (min-width: 576px){
+.container, .container-sm {
+    max-width: 540px;
+}
+.avatar-responsive.avatar, .avatar-responsive.avatar.avatar-lg, .avatar-responsive.avatar.avatar-sm, .avatar-responsive.avatar.avatar-xl {
+    height: 34px;
+    width: 34px;
+}
+}
+@media (min-width: 768px){
+.container, .container-md, .container-sm {
+    max-width: 720px;
+}
+.avatar-responsive.avatar, .avatar-responsive.avatar.avatar-lg, .avatar-responsive.avatar.avatar-xl {
+    height: 44px;
+    width: 44px;
+}
+.message-inner {
+    margin-left: 1rem;
+}
+}
+@media (min-width: 992px){
+.container, .container-lg, .container-md, .container-sm {
+    max-width: 960px;
+}
+.py-lg-7 {
+    padding-top: 1.5rem!important;
+    padding-bottom: 1.5rem!important;
+}
+.py-lg-12 {
+    padding-top: 3.5rem!important;
+    padding-bottom: 3.5rem!important;
+}
+.message-inner {
+    max-width: 70%;
+}
+.message+.message {
+    margin-top: 1.5rem;
+}
+.pb-lg-7 {
+    padding-bottom: 1.5rem!important;
+}
+}
+@media (min-width: 1200px){
+.main, .navigation, .sidebar {
+    height: 100vh;
+}
+.layout {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1040px;
+}
+.d-xl-none {
+    display: none!important;
+}
+.col-xl-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 100%;
+}
+.text-xl-start {
+    text-align: left!important;
+}
+.col-xl-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+}
+.d-xl-inline-block {
+    display: inline-block!important;
+}
+.col-xl-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+}
+.d-xl-block {
+    display: block!important;
+}
+.message-inner {
+    max-width: 50%;
+}
+}
+@media (min-width: 1440px){
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1080px;
+}
+.message-inner {
+    max-width: 45%;
+}
+}

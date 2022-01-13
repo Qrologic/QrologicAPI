@@ -1,0 +1,30 @@
+﻿
+
+@model QroApi.MODEL.CircleModel
+
+
+<span class="text-danger" id="spvalidation"></span>
+<form asp-action="AddCircle" asp-controller="Recharge" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="CircleName"></label><span class="text-danger">*</span>
+                <input asp-for="CircleName" type="text" placeholder="Circle Name" class="form-control">
+                <span asp-validation-for="CircleName" class="text-danger"></span>
+                <input type="hidden" asp-for="CircleId" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="position-relative form-group">
+                <label asp-for="CircleCode" class=""></label><span class="text-danger">*</span>
+                <input asp-for="CircleCode" placeholder="Circle Code" type="text" class="form-control">
+                <span asp-validation-for="CircleCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" class="t-1 btn btn-primary">Save</button>
+        </div>
+    </div>
+
+</form>

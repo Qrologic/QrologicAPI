@@ -1,0 +1,347 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1> <i class="lnr-apartment opacity-6"></i> Profile </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Profile</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper">
+            <div class="main-panel cardComposite-default">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 col-sm-6 card-1">
+                            <div class="panel panel-default card-detail">
+                                <div class="panel-body">
+                                    <div class="card-content secondary-header">
+                                        Basic information
+                                        <span class="pull-right text-primary edit-link" data-config-id="accountDetailsDisplayInfo">
+                                            <span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Edit</span>
+                                        </span>
+                                    </div>
+                                    <div class="scroll-area-sm">
+                                        <div class="scrollbar-container ps">
+                                            <div class="card-content pb20">
+                                                <div></div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Display Name</span>
+                                                    <p>
+                                                        <span class="help-text">kapil &nbsp;Sir</span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Gender</span>
+                                                    <p>
+                                                        <span class="help-text">Male  </span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">DOB</span>
+                                                    <p>
+                                                        <span class="help-text">10-10-1995 </span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">DOJ</span>
+                                                    <p>
+                                                        <span class="help-text">08-10-2020</span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Address</span>
+                                                    <p>
+                                                        <span class="help-text">partap nagar  </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer text-center load-more" style="display: none;">
+                                    <span class="load-more-text more">
+                                        More
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                    <span class="load-more-text less">
+                                        Less
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-lg-4 col-sm-6 card-1">
+                            <div class="panel panel-default card-detail">
+                                <div class="panel-body">
+                                    <div class="card-content secondary-header">
+                                        Security
+                                        <span class="pull-right text-primary edit-link" data-config-id="accountInfo">
+                                            <span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Change Password</span>
+                                        </span>
+                                    </div>
+                                    <div class="scroll-area-sm">
+                                        <div class="scrollbar-container ps">
+                                            <div class="card-content pb20">
+                                                <div></div>
+
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Your Mobile Number</span>
+
+                                                    <p>
+                                                        <span class="help-text">8118830871 </span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Your Email address</span>
+                                                    <p>
+                                                        <span class="help-text">kapil@gmail.com </span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Password</span>
+                                                    <p>
+                                                        <span class="help-text">***** </span>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer text-center load-more" style="display: none;">
+                                    <span class="load-more-text more">
+                                        More
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                    <span class="load-more-text less">
+                                        Less
+                                        <i class="fa fa-angle-up"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4 col-lg-4 col-sm-6 card-1" id="vendorCard">
+                            <div class="panel panel-default card-detail">
+                                <div class="panel-body">
+                                    <div class="card-content secondary-header">
+                                        Vendor Details
+                                        <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>Verification Pending</small>
+                                        <span class="pull-right text-primary edit-link" data-config-id="accountDetailsDisplayInfo">
+                                            <span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Edit</span>
+                                        </span>
+                                    </div>
+                                    <div class="scroll-area-sm">
+                                        <div class="scrollbar-container ps">
+                                            <div class="card-content pb20">
+                                                <div></div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Business Name</span>
+
+                                                    <p class="help-text">
+
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">GST</span>
+
+                                                    <p class="help-text">
+
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">PAN</span>
+
+                                                    <p class="help-text">
+
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Address Line1</span>
+
+                                                    <p class="help-text">
+
+                                                    </p>
+                                                </div>
+
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Pincode</span>
+
+                                                    <p class="help-text">
+
+
+                                                    </p>
+                                                </div>
+
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Pick Up City</span>
+
+                                                    <p class="help-text">
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                @*<div class="panel-footer text-center load-more" id="vendorBtn">
+                                        <span class="load-more-text more">
+                                            More
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                        <span class="load-more-text less">
+                                            Less
+                                            <i class="fa fa-angle-up"></i>
+                                        </span>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-6 card-1" id="Contact">
+                            <div class="panel panel-default card-detail">
+                                <div class="panel-body">
+                                    <div class="card-content secondary-header">
+                                        Contact Details
+                                        <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>Verification Pending</small>
+                                        <span class="pull-right text-primary edit-link" data-config-id="accountPrimaryContactInfo">
+                                            <span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Edit</span>
+                                        </span>
+                                    </div>
+                                    <div class="scroll-area-sm">
+                                        <div class="scrollbar-container ps">
+                                            <div class="card-content pb20">
+                                                <div></div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Account Holder Name</span>
+
+                                                    <p>
+                                                        <span class="help-text">Manoj  </span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Account Number</span>
+
+                                                    <p>
+                                                        <span class="help-text">98765432108092</span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">IFSC code</span>
+
+                                                    <p>
+                                                        <span class="help-text">MANO0001122 </span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Bank Name</span>
+
+                                                    <p>
+                                                        <span class="help-text">
+                                                            ABCD
+                                                        </span>
+                                                    </p>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                @*<div class="panel-footer text-center load-more" id="contactBtn">
+                                        <span class="load-more-text more">
+                                            More
+                                            <i class="fa fa-angle-down"></i>
+                                        </span>
+                                        <span class="load-more-text less">
+                                            Less
+                                            <i class="fa fa-angle-up"></i>
+                                        </span>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-lg-4 col-sm-6 card-1">
+                            <div class="panel panel-default card-detail">
+                                <div class="panel-body">
+                                    <div class="card-content secondary-header">
+
+                                        Bank Details
+                                        <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>Verification Pending</small>
+                                        <span class="pull-right text-primary edit-link" data-config-id="accountPrimaryContactInfo">
+                                            <span data-toggle="modal" data-target="#Basic-information" onclick="menu.AdminMenuPopup(0);">Edit</span>
+                                        </span>
+                                    </div>
+                                    <div class="scroll-area-sm">
+                                        <div class="scrollbar-container ps">
+                                            <div class="card-content pb20">
+                                                <div></div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Account Holder Name</span>
+
+                                                    <p>
+                                                        <span class="help-text">Manoj  </span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Account Number</span>
+
+                                                    <p>
+                                                        <span class="help-text">98765432108092</span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">IFSC code</span>
+
+                                                    <p>
+                                                        <span class="help-text">MANO0001122 </span>
+                                                        <span class="icon icon-success"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="colo-md-12">
+                                                    <span class="help-text light">Bank Name</span>
+
+                                                    <p>
+                                                        <span class="help-text">
+                                                            ABCD
+                                                        </span>
+                                                    </p>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px; height: 200px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,96 @@
+﻿@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    ViewData["Title"] = "BalanceRequest";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new BalanceRequestList(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+
+    List<string>
+    termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+
+    ViewData["Title"] = "Balance Request";
+    var userRole = User.Identity.GetDetailOf("Role");
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header">
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="wallet.OpenRequestPopup(0);">
+                        <i class="fa fa-plus-circle"></i>&nbsp;New Request
+                    </a>
+                    <div class="btn-actions-pane-right">
+                        <div role="group" class="btn-group-sm nav btn-group">
+
+                            @if (userRole.ToString().ToLower() != "retailer")
+                            {
+                                <a data-toggle="tab" href="#tab-eg1-0" class="btn-shadow active btn btn-primary">Self</a>
+                                <a data-toggle="tab" href="#tab-eg1-1" class="btn-shadow  btn btn-primary">Downline</a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-eg1-0" role="tabpanel">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed ">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-eg1-1" role="tabpanel">
+                            <div class="table-responsive">
+                                <table id="myTable2" class="display nowrap dataTable dtr-inline collapsed " style="width:100%;">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<script src="~/CustomJS/Wallet.js"></script>
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            menu.BindBreadCrumb(0);
+            $.when(table.BindPostTable(`/Member/Wallet/LoadBalanceRequest`, `myTable`)).then(function () {                
+                table.BindPostTable(`/Member/Wallet/LoadDownlineBalanceRequest`, `myTable2`)
+            });
+        });
+    </script>
+}

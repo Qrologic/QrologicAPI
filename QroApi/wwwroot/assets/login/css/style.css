@@ -1,0 +1,113 @@
+.left-slider-div{
+    width: 55%;
+    height: 601px;
+    float: left;
+    background-color: rgb(255, 255, 255);
+    padding: 22px 59px 0px 106px;
+}
+.right-slider-div{
+    width: 45%;
+    height: 601px;
+    float: right;
+    background-color: rgb(255, 255, 255);
+}
+.right-slider-div.forget-passward {
+    width: 100%;
+    margin: 0 auto;
+    height:auto;
+}
+.w3-content {
+    max-width: 670px !important;
+}
+.wrap-input100{
+        margin-top: 10px;
+}
+.right-slider-div.forget-passward .wrap-input100 {
+    margin-top: 20px;
+}
+@media (max-width: 1400px){
+    .left-slider-div {
+    width: 50%;
+    padding: 22px 60px 0px 80px;
+}
+.right-slider-div {
+    width: 50%;
+}
+.login100-form {
+    width: 100%;
+    padding: 66px 40px 0px 40px;
+}
+}
+@media (max-width: 991px){
+    .left-slider-div {
+    width: 50%;
+    padding: 50px 0px 0px 0px;
+}
+.right-slider-div {
+    width: 50%;
+}
+.login100-form {
+    width: 100%;
+    padding: 50px 15px 0px 15px;
+}
+.login100-form-title{
+    font-size: 20px;
+}
+.label-input100{
+    font-size: 15px;
+}
+.login100-form-btn{
+    width: 60%;
+}
+.txt2 {
+    margin-top: -80px;
+}
+    .right-slider-div.forget-passward .login100-form {
+        width: 100% !important;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@media (max-width: 767px){
+    .left-slider-div{
+        display: none;
+    }
+    .right-slider-div{
+        width: 100%;
+        float: none;
+    }
+    .login100-form{
+        width: 100%;
+    }
+    .input100{
+        padding: 0px;
+    }
+    .txt2 {
+    margin-top: -80px;
+}
+}
+@media (max-width: 476px){
+    .login100-form-title{
+        font-size: 20px;
+    }
+    .login100-form-title{
+        font-size: 14px !important;
+    }
+    .label-input100{
+        font-size: 14px;
+    }
+    .input100 {
+    padding: 0px 25px;
+}
+.wrap-input100{
+        /*height: 65px;*/
+        margin-top: 10px;
+}
+.login100-form-btn{
+    width: 60%;
+}
+.txt2 {
+    margin-top: -80px;
+}
+}

@@ -1,0 +1,75 @@
+﻿@model QroApi.MODEL.SupportModel
+
+@if (Model.list != null)
+{
+    @foreach (var item in Model.list)
+    {
+        @if (item.DateGroup == 1)
+        {
+            <small class="opacity-6" style="padding: 4px; background-color: #e0f3ff78; border-radius: 8px;"> @item.Date</small>
+        }
+        @if (item.MsrNo > 1)
+        {
+            <div class="chat-box-wrapper">
+                <div>
+                    <div class="avatar-icon-wrapper mr-1">
+                        <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                        </div>
+                        <div class="avatar-icon avatar-icon-lg rounded">
+                            <img src="~/assets/Panel/chat/userchat.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="chat-box">
+                        @item.Message
+                        <small class="opacity-6 message-time"> @item.MsgTime</small>
+                    </div>
+                    @if (item.Attachment.Length > 0)
+                    {<div class="message-content">
+                            <div class="message-gallery">
+                                <div class="row gx-3">
+                                    <div class="col">
+                                        <img class="img-fluid rounded" src="../../images/uploadimages/@item.Attachment" data-action="zoom" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="float-right">
+                <div class="chat-box-wrapper chat-box-wrapper-right">
+                    <div>
+                        <div class="chat-box">
+                            @item.Message
+                            <small class="opacity-6 message-time"> @item.MsgTime</small>
+                        </div>
+                        @if (item.Attachment.Length > 0)
+                        {
+                            <div class="message-gallery">
+                                <div class="row gx-3">
+                                    <div class="col">
+                                        <img class="img-fluid rounded" src="../../images/uploadimages/@item.Attachment" data-action="zoom" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div>
+                        <div class="avatar-icon-wrapper ml-1">
+                            <div class="badge badge-bottom btn-shine badge-success badge-dot badge-dot-lg">
+                            </div>
+                            <div class="avatar-icon avatar-icon-lg rounded">
+                                <img src="~/assets/Panel/chat/adminchat.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }}

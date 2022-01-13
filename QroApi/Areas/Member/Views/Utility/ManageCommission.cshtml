@@ -1,0 +1,48 @@
+﻿
+<div class="row form-group">
+    <div class="col-md-5">
+        Service
+        <select class="form-control" id="ServiceId"></select>
+    </div>
+    <div class="col-md-5">
+        Package
+        <select class="form-control" id="PackageId">
+        </select>
+    </div>
+    <div class="col-md-2">
+        <br />
+        <input type="submit" value="View" onclick="rc.MemberCommissionByPackageId()" class="t-1 btn btn-primary" />
+    </div>
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+<form id="btn_save" style="display:none">
+    <div class="row form-group">
+
+        <div class="col-md-12 table-responsive">
+            <table id="myTable_temp" class="display nowrap dataTable dtr-inline collapsed ">
+                <thead>
+                    <tr>
+                        <th>SrNo</th>
+                        @*<th>Service Name</th>*@
+                        <th>Operator Name</th>
+                        <th>My Commission</th>
+                        <th>Commission</th>
+                        <th>IsFlat</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-md-1">
+            <a href="javascript:void(0);" onclick="rc.SaveMemberRechargeCommission('/Member/Utility/ManageCommission')" class="t-1 btn btn-primary">Save</a>
+        </div>
+    </div>
+</form>

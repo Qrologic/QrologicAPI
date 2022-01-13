@@ -1,0 +1,344 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard2";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content cui__utils__content">
+    <div class="ant-spin-container ng-star-inserted">
+        <div class="row">
+            <div class="col-lg-7 ng-tns-c339-5">
+                <div class="card ipayShadow ng-tns-c339-5">
+                    <div class="row p-4 ng-tns-c339-5" style="height: 215px;">
+                        <div class="col-lg-12 ng-tns-c339-5">
+                            <div class="d-flex flex-row justify-content-between ng-tns-c339-5">
+                                <span class="font-size-12 opa05 text-dark ng-tns-c339-5">pool account</span>
+                                <div class="ng-tns-c339-5">
+                                    <a title="UPI QR" class="mat-focus-indicator mr-3 ng-tns-c339-5 mat-stroked-button mat-button-base" href="#" tabindex="0" aria-disabled="false">
+                                        <span class="mat-button-wrapper">
+                                            <i aria-hidden="true" class="fa fa-qrcode"></i>
+                                            <span class="d-none d-md-inline d-xl-inline ml-2">UPI QR</span>
+                                        </span>
+                                        <span class="mat-ripple mat-button-ripple"></span>
+                                        <span class="mat-button-focus-overlay"></span>
+                                    </a>
+                                    <a color="primary" title="Add Money" class="mat-focus-indicator ng-tns-c339-5 mat-raised-button mat-button-base mat-primary" href="#" tabindex="0" aria-disabled="false">
+                                        <span class="mat-button-wrapper">
+                                            <i aria-hidden="true" class="fa fa-plus"></i>
+                                            <span class="d-none d-md-inline d-xl-inline ml-2">Add Money</span>
+                                        </span>
+                                        <span class="mat-ripple mat-button-ripple"></span>
+                                        <span class="mat-button-focus-overlay"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between ng-tns-c339-5 mt-2">
+                                <div class="d-flex flex-column ng-tns-c339-5">
+                                    <span class="text-dark font-weight-bold font-size-18 ng-tns-c339-5" style="letter-spacing: 1px;">InstantPay Pool Account</span>
+                                    <span class="mt-2 font-size-16 lightdark ng-tns-c339-5" style="letter-spacing: 3px;">
+                                        8562&nbsp;850&nbsp;154
+                                        <a class="ng-tns-c339-5" href="#">
+                                            <i aria-hidden="true" class="fa fa-long-arrow-right text-primary font-size-18 pointer ng-tns-c339-5"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between mt-4 ng-tns-c339-5">
+                                <div class="mt-3 ng-tns-c339-5">
+                                    <span class="text-dark font-size-16 pointer ng-tns-c339-5" id="ShowBalance" onclick="ShowBalance()">View Balance</span>
+                                    <span class="loader-span mb-0 text-left text-dark font-weight-bold" id="BalanceShow" style=" display: none; font-size:18px;">₹ <span>100.00</span></span>
+                                    <span class="text-dark font-weight-bold pointer hidden ng-tns-c339-5 font-size-28" style="letter-spacing: 2px; line-height: 0.8;"></span>
+                                </div>
+                                <img src="../../images/UploadImages/logo2623fc71-5be8-493f-a056-8ce683d840e6.png" alt="" class="mt-3 ipayLogoGrayScale ng-tns-c339-5" style="height: 30px; width:unset;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 ng-tns-c339-5">
+                <div class="card ng-tns-c339-5">
+                    <div class="ng-tns-c339-5 ant-carousel ant-carousel-vertical">
+                        <div class="slick-initialized slick-slider slick-vertical">
+                            <div class="slick-list">
+                                <div class="slick-track">
+                                    <div class="slick-slide ng-tns-c339-5 slick-active ng-star-inserted" style="background-color: rgb(247, 247, 247); height: 215px; opacity: 1; position: relative; left: 0px; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;">
+                                        <div class="row p-3 ng-tns-c339-5">
+                                            <div class="col-lg-8 ng-tns-c339-5">
+                                                <span class="font-size-18 font-weight-bold ng-tns-c339-5" style="letter-spacing: 1px; color: rgb(33, 37, 41);"> Bank on the go! </span>
+                                                <p class="font-size-12 mt-3 mb-4 ng-tns-c339-5" style="color: rgb(33, 37, 41);"> Hey friend, get easier and faster access to all your accounts with InstantPay when it's on your phone. Grab the app! </p>
+                                                <a class="mat-focus-indicator mt-3 ng-tns-c339-5 mat-raised-button mat-button-base" target="_blank" href="#" tabindex="0" aria-disabled="false" style="color: rgb(247, 247, 247); background-color: rgb(0, 51, 161);">
+                                                    <span class="mat-button-wrapper"> Download Now </span>
+                                                    <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                                                    <span class="mat-button-focus-overlay"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-4 d-flex justify-content-center align-items-center ng-tns-c339-5">
+                                                <mat-icon role="img" class="mat-icon notranslate ng-tns-c339-5 material-icons mat-icon-no-color ng-star-inserted" style="transform: scale(5); color: rgb(169, 169, 169);" aria-hidden="true" data-mat-icon-type="font">de</mat-icon>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="slick-dots slick-dots-right ng-star-inserted">
+                                <li class="slick-active ng-star-inserted">
+                                    <button class="ng-star-inserted">1</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row ng-tns-c339-5">
+                <div class="col-12 ng-tns-c339-5">
+                    <div class="d-inline-flex pull-right mb-1 mt-2 mr-2 ng-tns-c339-5">
+                        <button type="button" nzhasbackdrop="true" nzplacement="bottomRight" class="dropdown-toggle btn btn-sm btn-outline-default ng-tns-c339-5 ant-dropdown-trigger">Today</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row ng-tns-c339-5">
+                <div class="col-lg-3 col-6 mt-1 mb-4 ng-tns-c339-5">
+                    <div class="moneny-statistics flex-row ng-tns-c339-5">
+                        <div class="moneySummerIconBox ng-tns-c339-5">
+                            <p class="text-success font-size-28 text-center mt-2 ng-tns-c339-5">
+                                <i aria-hidden="true" class="fe fe-arrow-down ng-tns-c339-5"></i>
+                            </p>
+                        </div>
+                        <div class="d-flex flex-column ng-tns-c339-5">
+                            <span class="text-dark p-1 font-size-16 ng-tns-c339-5" style="font-weight: 300;">MONEY IN</span>
+                            <span class="p-1 text-primary ng-tns-c339-5 font-size-28">₹0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mt-1 mb-4 ng-tns-c339-5">
+                    <div class="moneny-statistics flex-row ng-tns-c339-5">
+                        <div class="moneySummerIconBoxRed ng-tns-c339-5">
+                            <p class="text-danger font-size-28 text-center mt-2 ng-tns-c339-5">
+                                <i aria-hidden="true" class="fe fe-arrow-up ng-tns-c339-5"></i>
+                            </p>
+                        </div>
+                        <div class="d-flex flex-column ng-tns-c339-5">
+                            <span class="text-dark p-1 font-size-16 ng-tns-c339-5" style="font-weight: 300;">MONEY OUT</span>
+                            <span class="p-1 text-primary ng-tns-c339-5 font-size-28">₹0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mt-1 mb-4 ng-tns-c339-5">
+                    <div class="moneny-statistics flex-row ng-tns-c339-5">
+                        <div class="moneySummerIconBox ng-tns-c339-5">
+                            <p class="text-success font-size-28 text-center mt-2 ng-tns-c339-5">
+                                <i aria-hidden="true" class="fe fe-arrow-down-left ng-tns-c339-5"></i>
+                            </p>
+                        </div>
+                        <div class="d-flex flex-column ng-tns-c339-5">
+                            <span class="text-dark p-1 font-size-16 ng-tns-c339-5" style="font-weight: 300;">RECEIVABLE</span>
+                            <span class="p-1 text-primary ng-tns-c339-5 font-size-28">₹0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 mt-1 mb-4 ng-tns-c339-5">
+                    <div class="moneny-statistics flex-row ng-tns-c339-5">
+                        <div class="moneySummerIconBoxRed ng-tns-c339-5">
+                            <p class="text-danger font-size-28 text-center mt-2 ng-tns-c339-5">
+                                <i aria-hidden="true" class="fe fe-arrow-up-right ng-tns-c339-5"></i>
+                            </p>
+                        </div>
+                        <div class="d-flex flex-column ng-tns-c339-5">
+                            <span class="text-dark p-1 font-size-16 ng-tns-c339-5" style="font-weight: 300;">PAYABLE</span>
+                            <span class="p-1 text-primary ng-tns-c339-5 font-size-28">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 ng-tns-c339-5">
+                <div class="card trans-tab p-4 ng-tns-c339-5">
+                    <div class="ant-tabs transTabs ng-tns-c339-5 ant-tabs-top ant-tabs-default">
+                        <div role="tablist" class="ant-tabs-nav ng-star-inserted">
+                            <div class="ant-tabs-nav-wrap">
+                                <div class="ant-tabs-nav-list nav nav-tabs" style="transform: translate(0px, 0px);">
+                                    <div class="ant-tabs-tab ng-star-inserted active" data-toggle="tab" href="#home">
+                                        <div class="ant-tabs-tab-btn ">Recent</div>
+                                    </div>
+                                    <div class="ant-tabs-tab ng-star-inserted" data-toggle="tab" href="#home2">
+                                        <div role="tab" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" tabindex="-1" aria-disabled="false" aria-selected="false" aria-controls="nz-tabs-0-tab-1">Receivable</div>
+                                    </div>
+                                    <div class="ant-tabs-tab ng-star-inserted" data-toggle="tab" href="#home3">
+                                        <div role="tab" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" tabindex="-1" aria-disabled="false" aria-selected="false" aria-controls="nz-tabs-0-tab-2">Payable</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ant-tabs-content-holder">
+                            <div class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated tab-content" style="margin-left: 0%;">
+                                <div id="home" class=" tab-pane active">
+                                    <div class="ant-tabs-tabpane ng-star-inserted ant-tabs-tabpane-active" tabindex="0" aria-hidden="false" style="">
+                                        <div class="ng-star-inserted" style="">
+                                            <div class="flex-center-column pt-5 mt-3 ng-tns-c339-5 ng-star-inserted">
+                                                <img style="width: 40%;" class="ng-tns-c339-5" src="~/assets/Panel/images/txns-recent.webp">
+                                                <small class="mt-4 light-dark font-size-14 ng-tns-c339-5">see your recent transactions here</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="home2" class=" tab-pane">
+                                    <div class="ant-tabs-tabpane ng-star-inserted ant-tabs-tabpane-active" tabindex="0" aria-hidden="false" style="">
+                                        <div class="ng-star-inserted" style="">
+                                            <div class="flex-center-column pt-5 mt-3 ng-tns-c339-5 ng-star-inserted">
+                                                <img style="width: 40%;" class="ng-tns-c339-5" src="~/assets/Panel/images/txns-receivable.webp">
+                                                <small class="mt-4 light-dark font-size-14 ng-tns-c339-5">see your recent transactions here</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="home3" class=" tab-pane">
+                                    <div class="ant-tabs-tabpane ng-star-inserted ant-tabs-tabpane-active" tabindex="0" aria-hidden="false" style="">
+                                        <div class="ng-star-inserted" style="">
+                                            <div class="flex-center-column pt-5 mt-3 ng-tns-c339-5 ng-star-inserted">
+                                                <img style="width: 40%;" class="ng-tns-c339-5" src="~/assets/Panel/images/txns-payable.webp">
+                                                <small class="mt-4 light-dark font-size-14 ng-tns-c339-5">see your recent transactions here</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ng-tns-c339-5">
+                <div class="card trans-tab p-4 ng-tns-c339-5">
+                    <nz-tabset class="ant-tabs transTabs ng-tns-c339-5 ant-tabs-top ant-tabs-default">
+                        <nz-tabs-nav role="tablist" class="ant-tabs-nav ng-star-inserted" style="border-bottom: none;">
+                            <div class="ant-tabs-nav-wrap">
+                                <div class="ant-tabs-nav-list" style="transform: translate(0px, 0px);">
+                                    <div class="ant-tabs-tab active ng-star-inserted">
+                                        <div role="tab" cdkmonitorelementfocus="" class="ant-tabs-tab-btn" tabindex="0" aria-disabled="false" aria-selected="true" aria-controls="nz-tabs-1-tab-0">From our Blog</div>
+                                    </div>
+                                    <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="left: 0px; width: 97px;"></div>
+                                </div>
+                            </div>
+                            <nz-tab-nav-operation class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden">
+                                <button type="button" tabindex="-1" aria-hidden="true" nzoverlayclassname="nz-tabs-dropdown" class="ant-tabs-nav-more ant-dropdown-trigger">
+                                    <i nz-icon="" nztype="ellipsis" class="anticon anticon-ellipsis">
+                                        <svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1em" height="1em" data-icon="ellipsis" aria-hidden="true">
+                                            <path d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"></path>
+                                        </svg>
+                                    </i>
+                                </button>
+                            </nz-tab-nav-operation>
+                        </nz-tabs-nav>
+                        <div class="ant-tabs-content-holder">
+                            <div class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated" style="margin-left: 0%;">
+                                <div nz-tab-body="" class="ant-tabs-tabpane ant-tabs-tabpane-active ng-star-inserted" tabindex="0" aria-hidden="false">
+                                    <div _ngcontent-glr-c339="" class="ng-star-inserted">
+                                        <ul class="list-unstyled blogScroll ng-tns-c339-5">
+                                            <nz-skeleton class="ng-tns-c339-5 ant-skeleton ant-skeleton-with-avatar ant-skeleton-active">
+                                            </nz-skeleton>
+                                            <nz-skeleton class="ng-tns-c339-5 ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"></nz-skeleton>
+                                            <nz-skeleton class="ng-tns-c339-5 ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"></nz-skeleton>
+                                            <li class="item mb-4 ng-tns-c339-5 ng-star-inserted" style="">
+                                                <a href="javascript:;" class="itemLink ng-tns-c339-5">
+                                                    <div class="ng-tns-c339-5">
+                                                        <div class="flex-row ng-tns-c339-5">
+                                                            <div style="align-self: center;" class="ng-tns-c339-5">
+                                                                <div class="kit__utils__avatar kit__utils__avatar--size64 newAvatar mr-2 ng-tns-c339-5">
+                                                                    <a target="_blank" class="ng-tns-c339-5" href="https://medium.com/p/10132e45eec5">
+                                                                        <img alt="User 11" style="height: 60px; width:unset;" class="ng-tns-c339-5" src="https://cdn-images-1.medium.com/max/1024/1*fKT5XCIodLVeNjoG75fZgQ.jpeg">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ng-tns-c339-5">
+                                                                <div class="font-size-14 text-primary blog-headline ng-tns-c339-5">
+                                                                    <a target="_blank" class="font-size-14 text-primary blog-headline ng-tns-c339-5" href="https://medium.com/p/10132e45eec5">Neobanking: A smart way of banking for businesses</a>
+                                                                </div>
+                                                                <div class="mt-1 ng-tns-c339-5">
+                                                                    <small class="text light-dark ng-tns-c339-5"> SMEs contribute significantly to employment and the economy, but most still have limited access to financing/commercial banking and are under-served by financial institutions. This is where Neobank co... </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="item mb-4 ng-tns-c339-5 ng-star-inserted" style="">
+                                                <a href="javascript:;" class="itemLink ng-tns-c339-5">
+                                                    <div class="ng-tns-c339-5">
+                                                        <div class="flex-row ng-tns-c339-5">
+                                                            <div style="align-self: center;" class="ng-tns-c339-5">
+                                                                <div class="kit__utils__avatar kit__utils__avatar--size64 newAvatar mr-2 ng-tns-c339-5">
+                                                                    <a target="_blank" class="ng-tns-c339-5" href="https://medium.com/p/1137757519ac">
+                                                                        <img alt="User 11" style="height: 60px; width: unset;" class="ng-tns-c339-5" src="https://cdn-images-1.medium.com/max/1024/0*ijjJ78d1gIZY_v5E">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ng-tns-c339-5">
+                                                                <div class="font-size-14 text-primary blog-headline ng-tns-c339-5">
+                                                                    <a target="_blank" class="font-size-14 text-primary blog-headline ng-tns-c339-5" href="https://medium.com/p/1137757519ac">Brand gift cards: Appropriate for both businesses and recipients</a>
+                                                                </div>
+                                                                <div class="mt-1 ng-tns-c339-5">
+                                                                    <small class="text light-dark ng-tns-c339-5"> When it comes to corporate gifting, brand gift cards are an ideal option for businesses to gift or reward employees, customers, and partners. These digital-first rewards are gaining popularity as they... </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="item mb-4 ng-tns-c339-5 ng-star-inserted" style="">
+                                                <a href="javascript:;" class="itemLink ng-tns-c339-5">
+                                                    <div class="ng-tns-c339-5">
+                                                        <div class="flex-row ng-tns-c339-5">
+                                                            <div style="align-self: center;" class="ng-tns-c339-5">
+                                                                <div class="kit__utils__avatar kit__utils__avatar--size64 newAvatar mr-2 ng-tns-c339-5">
+                                                                    <a target="_blank" class="ng-tns-c339-5" href="https://medium.com/p/230721c86f18">
+                                                                        <img alt="User 11" style="height: 60px; width: unset;" class="ng-tns-c339-5" src="https://cdn-images-1.medium.com/max/1024/0*de6T5UUQjE6NypqA">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ng-tns-c339-5">
+                                                                <div class="font-size-14 text-primary blog-headline ng-tns-c339-5">
+                                                                    <a target="_blank" class="font-size-14 text-primary blog-headline ng-tns-c339-5" href="https://medium.com/p/230721c86f18">Top 4 advantages of gift cards for your business</a>
+                                                                </div>
+                                                                <div class="mt-1 ng-tns-c339-5">
+                                                                    <small class="text light-dark ng-tns-c339-5"> Gift cards are an ideal gift for everyone, giving the recipient the freedom to choose the gift of their choice. When it comes to business gifting, you have many more reasons to opt for a gift card (di... </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="item mb-4 ng-tns-c339-5 ng-star-inserted" style="">
+                                                <a href="javascript:;" class="itemLink ng-tns-c339-5">
+                                                    <div class="ng-tns-c339-5">
+                                                        <div class="flex-row ng-tns-c339-5">
+                                                            <div style="align-self: center;" class="ng-tns-c339-5">
+                                                                <div class="kit__utils__avatar kit__utils__avatar--size64 newAvatar mr-2 ng-tns-c339-5">
+                                                                    <a target="_blank" class="ng-tns-c339-5" href="https://medium.com/p/8ca7106fa6c4">
+                                                                        <img alt="User 11" style="height: 60px; width: unset;" class="ng-tns-c339-5" src="https://cdn-images-1.medium.com/max/1024/0*0nlxAjN5hV-jvhBk">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="ng-tns-c339-5">
+                                                                <div class="font-size-14 text-primary blog-headline ng-tns-c339-5">
+                                                                    <a target="_blank" class="font-size-14 text-primary blog-headline ng-tns-c339-5" href="https://medium.com/p/8ca7106fa6c4">Why should your business adopt API’s for business banking?</a>
+                                                                </div>
+                                                                <div class="mt-1 ng-tns-c339-5">
+                                                                    <small class="text light-dark ng-tns-c339-5"> APIs have become more prevalent in the banking and fintech industries over the past few years. However, they are being used in business scenarios for more than 2 decades and now we are seeing the adop... </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nz-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

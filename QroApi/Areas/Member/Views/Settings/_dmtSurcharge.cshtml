@@ -1,0 +1,16 @@
+﻿@model QroApi.MODEL.DMTSurcharge
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+        <tr>
+            <td>@item.SrNo</td>
+            <td>@item.PackageName</td>
+            <td>@item.FromAmount</td>
+            <td>@item.ToAmount</td>
+            <td>@item.Surcharge</td>
+            <td>@item.IsFlat</td>
+            <td><a href="#" class="badge badge-success" title="Edit" onclick="dmt.GetSurchargeById(@item.Id,'Admin')"><i class="fa fa-edit"></i></a></td>
+        </tr>
+    }
+}

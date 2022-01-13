@@ -1,0 +1,24 @@
+﻿@model QroApi.MODEL.PackageWiseApi
+    <form asp-action="SwitchPackageWise" asp-controller="Recharge" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+          data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+        <div class="row form-group">
+            <div class="col-sm-6">
+                Package
+                <select class="form-control" asp-for="packageId"></select>
+                <span asp-validation-for="packageId" class="text-danger"></span>
+            </div>
+            <div class="col-sm-6">
+                API
+                <select class="form-control" asp-for="apiId"></select>
+                <span asp-validation-for="apiId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-2">
+                <input type="submit" value="Submit" class="t-1 btn btn-primary" />
+            </div>
+        </div>
+    </form>
+
+
+

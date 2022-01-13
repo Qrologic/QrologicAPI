@@ -1,0 +1,97 @@
+﻿@model QroApi.MODEL.dmtApiCharge
+@{
+    ViewData["Title"] = "Manage DMT Charge";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Linq;
+@{
+    JObject obj = JObject.Parse(JsonConvert.SerializeObject(new dmtApiChargeResponse(), Formatting.Indented, new JsonSerializerSettings
+    { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));
+    obj.Remove("$id");
+    obj.Remove("Id");
+    
+
+    //obj.Remove("SponsorId");
+    List<string> termsList = new List<string>();
+    foreach (var columnName in obj)
+    {
+        termsList.Add(columnName.Key.Trim());
+    }
+    string[] columnArray = termsList.ToArray();
+
+}
+<style>
+    .modal-backdrop.fade.show {
+        display: none !important;
+    }
+
+    .modal-dialog {
+        height: auto !important;
+    }
+</style>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        
+                        <div class="col-md-12 col-6 text-right form-group">
+                            <a class="" href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" onclick="dmt.ChargePopup(0,'Admin');">
+                                <i class="fa fa-plus-circle"></i>&nbsp;Add New
+                            </a>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed">
+                                    <thead>
+                                        <tr>
+                                            @foreach (var item in columnArray)
+                                            {
+                                                <th>@item</th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                 
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/CustomJS/Utility.js"></script>
+<script src="~/CustomJS/DMT.js"></script>
+@section Scripts{
+    <script>
+        $(function () {
+            menu.BindBreadCrumb(0);
+          
+            var data = {};
+
+            data["option1"] = "0";
+            data["option2"] = "0";
+            common.Filter("Admin", "Services", "GetDMTApiChargeByApiId", data, "myTable");
+        })
+        function CheckAmount() {
+            var fromAmount = parseFloat($('#FromAmount').val() == "" ? "0" : $('#FromAmount').val());
+
+            var toAmount = parseFloat($('#ToAmount').val() == "" ? "0" : $('#ToAmount').val());
+            toAmount = toAmount == "NaN" ? 0 : toAmount;
+            if (fromAmount >= toAmount) {
+                $('#sp-amount').text('Invalid To Amount !');
+                return false;
+            }
+            else {
+                $('#sp-amount').text('');
+                return true;
+            }
+        }
+        function Clear() {
+            $('#sp-amount').text('');
+        }
+    </script>
+}

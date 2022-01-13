@@ -1,0 +1,105 @@
+﻿@model QroApi.MODEL.DMTSurcharge
+@{
+    ViewData["Title"] = "dmtSurcharge";
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1> <i class="lnr-apartment opacity-6"></i>DMT Surcharge</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>DMT</a></li>
+        <li class="active">Surcharge
+        <li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12  form-group">
+                            <form asp-action="AddEditDMTSurcharge" asp-controller="Settings" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+                                  data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+                                <input type="hidden" asp-for="Id" />
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label asp-for="PackageId" class="control-label"></label><span class="text-danger">*</span>
+                                            <select asp-for="PackageId" onchange="dmt.GetSurchargeByPackage(this.value,'Member')" class="form-control"></select>
+                                            <span asp-validation-for="PackageId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label asp-for="FromAmount" class="control-label"></label>
+                                            <input class="form-control" type="text" asp-for="FromAmount">
+                                            <span asp-validation-for="FromAmount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label asp-for="ToAmount" class="control-label"></label><span class="text-danger">*</span>
+                                            <input asp-for="ToAmount" class="form-control" />
+                                            <span asp-validation-for="ToAmount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label asp-for="Surcharge" class="control-label"></label><span class="text-danger">*</span>
+                                            <input asp-for="Surcharge" class="form-control" />
+                                            <span asp-validation-for="Surcharge" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <div class="form-group">
+                                            <label asp-for="IsFlat" class="control-label"></label>
+                                            <input asp-for="IsFlat" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <br />
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <hr />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table id="myTable" class="display nowrap dataTable dtr-inline collapsed">
+                                    <thead>
+                                        <tr>
+                                            <th>SrNo</th>
+                                            <th>Package Name</th>
+                                            <th>From Amount</th>
+                                            <th>To Amount</th>
+                                            <th>Surcharge</th>
+                                            <th>IsFlat</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-dmt-surcharge">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/CustomJS/Utility.js"></script>
+<script src="~/CustomJS/DMT.js"></script>
+@section Scripts{
+    <script>
+        $(function () {
+            table.dataTable("myTable");
+            utility.GetPackage("Member");
+        })
+    </script>
+}

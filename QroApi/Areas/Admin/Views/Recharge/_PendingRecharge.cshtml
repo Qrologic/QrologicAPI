@@ -1,0 +1,21 @@
+﻿@model QroApi.MODEL.TxnRecharge
+@if (Model.list != null)
+{
+    foreach (var item in Model.list)
+    {
+        <tr>
+            <td><input type="checkbox" value="@item.Id" /></td>
+            <td>@item.SrNo</td>
+            <td>@item.MemberId</td>
+            <td>@item.ServiceName</td>
+            <td>@item.OperatorName</td>
+            <td>@item.Number</td>
+            <td>@item.Amount</td>
+            <td>@item.Status</td>
+            <td>@item.TxnId</td>
+            @*<td>@item.ApiTxnId</td>*@
+            <td>@item.Date</td>
+            <td><input type="text" id="oprId_@item.Id" class="form-control" /></td>
+        </tr>
+    }
+}

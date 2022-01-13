@@ -1,0 +1,79 @@
+﻿@model QroApi.MODEL.CompanyModel
+<form asp-action="AddEditCompany" asp-controller="Settings" asp-area="Admin" enctype="multipart/form-data" data-ajax="true" data-ajax-method="POST" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure"
+      data-ajax-success="OnSuccess" data-ajax-complete="OnComplete">
+    <input type="hidden"  asp-for="Id" />
+
+    <span class="text-danger" id="spvalidation"></span>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="CompanyOwner" class=""></label><span class="text-danger">*</span>
+            <input asp-for="CompanyOwner" type="text" placeholder="Company Owner" class="form-control">
+            <span asp-validation-for="CompanyOwner" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="CompanyName" class=""></label><span class="text-danger">*</span>
+            <input asp-for="CompanyName" type="text" placeholder="Company Name" class="form-control">
+            <span asp-validation-for="CompanyName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="Mobile" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Mobile" placeholder="Mobile" type="text" class="form-control">
+            <span asp-validation-for="Mobile" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="Email" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Email" placeholder="Email" type="text" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-sm-6">
+            <label asp-for="PanNo" class=""></label>
+            <input asp-for="PanNo" placeholder="PAN Number" class="form-control uppercase">
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="GstNo"></label>
+            <input asp-for="GstNo" placeholder="GST Number" type="text" class="form-control">
+            <span asp-validation-for="GstNo" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+
+        <div class="col-sm-6">
+            <label asp-for="CIN" class=""></label>
+            <input asp-for="CIN" placeholder="CIN" type="text" class="form-control">
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="TanNo" class=""></label>
+            <input asp-for="TanNo" placeholder="TAN Number" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="Copyright" class=""></label><span class="text-danger">*</span>
+            <input asp-for="Copyright" placeholder="Copyright" type="text" class="form-control">
+            <span asp-validation-for="Copyright" class="text-danger"></span>
+        </div>
+        <div class="col-sm-6">
+            <label asp-for="WebsiteUrl" class=""></label><span class="text-danger">*</span>
+            <input asp-for="WebsiteUrl" placeholder="Copyright" type="text" class="form-control">
+            <span asp-validation-for="WebsiteUrl" class="text-danger"></span>
+        </div>
+        
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-6">
+            <label asp-for="Address" class=""></label><span class="text-danger">*</span>
+            <textarea asp-for="Address" placeholder="Company Address" class="form-control"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        @*<div class="col-sm-6">
+            <label asp-for="ImageFile" class=""></label><span class="text-danger"></span>
+            <input asp-for="ImageFile" accept="image/*" class="form-control" />
+        </div>*@
+    </div>
+    <input type="submit" value="Save" class="mt-1 btn col-2 btn-primary" style="float:right;" />
+</form>

@@ -1,0 +1,13 @@
+﻿@model QroApi.MODEL.LoginRequest 
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+
+<div class="row form-group" >
+    <div class="col-md-3">
+        <input type="text" asp-for="@Model.UserId" placeholder="UserId" />
+    </div>
+</div>
